@@ -1,0 +1,3 @@
+0a1,2
+> /home/bsauvage/EECS678/Quash/quash/test-cases/t2_find/sandbox/dir3/dir3-1/valgrind_expected.txt
+> /home/bsauvage/EECS678/Quash/quash/test-cases/t2_find/sandbox/dir3/valgrind_expected.txt
