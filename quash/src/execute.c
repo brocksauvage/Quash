@@ -32,13 +32,10 @@ char* get_current_directory(bool* should_free) {
   // TODO: Get the current working directory. This will fix the prompt path.
   // HINT: This should be pretty simple
   char pwd[1024];
-  getcwd(pwd, 1024);
-  fprintf(stdout, "%s\n", pwd);
-
   // Change this to true if necessary
   *should_free = false;
 
-  return "get_current_directory()";
+  return (getwd(pwd));
 }
 
 // Returns the value of an environment variable env_var
@@ -48,7 +45,7 @@ const char* lookup_env(const char* env_var) {
   // correctly
   // HINT: This should be pretty simple
   // Worked on by: Brock Sauvage
-  getenv(env_var);
+  env_var = getenv(env_var);
 
   // TODO: Remove warning silencers
   //(void) env_var; // Silence unused variable warning
@@ -177,7 +174,7 @@ void run_kill(KillCommand cmd) {
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
-  IMPLEMENT_ME();
+  fprintf(stdout, "%s\n", get_current_directory(false));
 
   // Flush the buffer before returning
   fflush(stdout);
