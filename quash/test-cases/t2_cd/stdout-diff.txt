@@ -1,4 +1,13 @@
-0a1,5
+1,8c1,5
+< /home/bsauvage/EECS678/Quash/quash/test-cases/t2_cd/sandbox
+< (null)
+< (null)
+< (null)
+< (null)
+< (null)
+< (null)
+< (null)
+---
 > dir3-1
 > dir3-2
 > valgrind_expected.txt

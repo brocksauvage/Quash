@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <deque.h>
 #include "quash.h"
 
 // Remove this and all expansion calls to it
@@ -305,18 +306,58 @@ void create_process(CommandHolder holder) {
                                                // is true
 
   // TODO: Remove warning silencers
-  (void) p_in;  // Silence unused variable warning
-  (void) p_out; // Silence unused variable warning
-  (void) r_in;  // Silence unused variable warning
-  (void) r_out; // Silence unused variable warning
-  (void) r_app; // Silence unused variable warning
+  //(void) p_in;  // Silence unused variable warning
+  //(void) p_out; // Silence unused variable warning
+  //(void) r_in;  // Silence unused variable warning
+  //(void) r_out; // Silence unused variable warning
+  //(void) r_app; // Silence unused variable warning
 
   // TODO: Setup pipes, redirects, and new process
+  pid_t pid;
+
+  if(p_in){
+	int pipefd[2];
+	int pipe(pipefd);
+
+	if(p_out){
+		int pipefd2[2];
+		int pipe(pipefd);
+	}
+	else if(r_out || r_app){
+		FILE *fout;
+	}
+	else{
+		printf(stderr, "\nError setting up process.");
+	}
+  }
+  else if(r_in)
+  {
+	FILE *fin;
+	if(p_out){
+		int pipefd[2];
+		int pipe(pipefd);
+	}
+	else if(r_out || r_app){
+		FILE *fout;
+	}
+	else{
+		printf(stderr, "\nError setting up process.");
+	}
+  }
+  else{}
+
+  pid = fork();
+	  
   IMPLEMENT_ME();
 
-  parent_run_command(holder.cmd); // This should be done in the parent branch of
-                                  // a fork
-  child_run_command(holder.cmd); // This should be done in the child branch of a fork
+ if(pid == 0){
+	child_run_command(holder.cmd); // This should be done in the child branch of a fork
+        exit(EXIT_SUCCESS);
+ } else{
+  	parent_run_command(holder.cmd); // This should be done in the parent branch of
+                                  	// a fork
+ }
+
 }
 
 // Run a list of commands

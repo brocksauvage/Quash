@@ -1,46 +1,143 @@
-==25965== Memcheck, a memory error detector
-==25965== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==25965== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==25965== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==25965== 
-IMPLEMENT ME: src/execute.c(line 64): check_jobs_bg_status()
-IMPLEMENT ME: src/execute.c(line 315): create_process()
-==25965== Invalid write of size 1
-==25965==    at 0x401529: get_current_directory (execute.c:36)
-==25965==    by 0x401808: run_pwd (execute.c:181)
-==25965==    by 0x4018D8: child_run_command (execute.c:224)
-==25965==    by 0x401A50: create_process (execute.c:319)
-==25965==    by 0x401B22: run_script (execute.c:339)
-==25965==    by 0x4011BE: main (quash.c:132)
-==25965==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==25965== 
-==25965== 
-==25965== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==25965==  Access not within mapped region at address 0x0
-==25965==    at 0x401529: get_current_directory (execute.c:36)
-==25965==    by 0x401808: run_pwd (execute.c:181)
-==25965==    by 0x4018D8: child_run_command (execute.c:224)
-==25965==    by 0x401A50: create_process (execute.c:319)
-==25965==    by 0x401B22: run_script (execute.c:339)
-==25965==    by 0x4011BE: main (quash.c:132)
-==25965==  If you believe this happened as a result of a stack
-==25965==  overflow in your program's main thread (unlikely but
-==25965==  possible), you can try to increase the size of the
-==25965==  main thread stack using the --main-stacksize= flag.
-==25965==  The main thread stack size used in this run was 8388608.
-==25965== 
-==25965== HEAP SUMMARY:
-==25965==     in use at exit: 17,730 bytes in 5 blocks
-==25965==   total heap usage: 9 allocs, 4 frees, 1,067,650 bytes allocated
-==25965== 
-==25965== LEAK SUMMARY:
-==25965==    definitely lost: 0 bytes in 0 blocks
-==25965==    indirectly lost: 0 bytes in 0 blocks
-==25965==      possibly lost: 0 bytes in 0 blocks
-==25965==    still reachable: 17,730 bytes in 5 blocks
-==25965==         suppressed: 0 bytes in 0 blocks
-==25965== Reachable blocks (those to which a pointer was found) are not shown.
-==25965== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==25965== 
-==25965== For counts of detected and suppressed errors, rerun with: -v
-==25965== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1585== Memcheck, a memory error detector
+==1585== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1585== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1585== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==1585== 
+IMPLEMENT ME: src/execute.c(line 65): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 359): run_script()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+==1776== Invalid write of size 1
+==1776==    at 0x401579: get_current_directory (execute.c:37)
+==1776==    by 0x401858: run_pwd (execute.c:182)
+==1776==    by 0x401928: child_run_command (execute.c:225)
+==1776==    by 0x401AA3: create_process (execute.c:328)
+==1776==    by 0x401B94: run_script (execute.c:354)
+==1776==    by 0x40120E: main (quash.c:132)
+==1776==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==1776== 
+==1776== 
+==1776== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==1776==  Access not within mapped region at address 0x0
+==1776==    at 0x401579: get_current_directory (execute.c:37)
+==1776==    by 0x401858: run_pwd (execute.c:182)
+==1776==    by 0x401928: child_run_command (execute.c:225)
+==1776==    by 0x401AA3: create_process (execute.c:328)
+==1776==    by 0x401B94: run_script (execute.c:354)
+==1776==    by 0x40120E: main (quash.c:132)
+==1776==  If you believe this happened as a result of a stack
+==1776==  overflow in your program's main thread (unlikely but
+==1776==  possible), you can try to increase the size of the
+==1776==  main thread stack using the --main-stacksize= flag.
+==1776==  The main thread stack size used in this run was 8388608.
+IMPLEMENT ME: src/execute.c(line 65): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 142): run_export()
+IMPLEMENT ME: src/execute.c(line 359): run_script()
+IMPLEMENT ME: src/execute.c(line 65): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 359): run_script()
+IMPLEMENT ME: src/execute.c(line 65): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 142): run_export()
+IMPLEMENT ME: src/execute.c(line 359): run_script()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+==1800== Invalid write of size 1
+==1800==    at 0x401579: get_current_directory (execute.c:37)
+==1800==    by 0x401858: run_pwd (execute.c:182)
+==1800==    by 0x401928: child_run_command (execute.c:225)
+==1800==    by 0x401AA3: create_process (execute.c:328)
+==1800==    by 0x401B94: run_script (execute.c:354)
+==1800==    by 0x40120E: main (quash.c:132)
+==1800==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==1800== 
+==1800== 
+==1800== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==1800==  Access not within mapped region at address 0x0
+==1800==    at 0x401579: get_current_directory (execute.c:37)
+==1800==    by 0x401858: run_pwd (execute.c:182)
+==1800==    by 0x401928: child_run_command (execute.c:225)
+==1800==    by 0x401AA3: create_process (execute.c:328)
+==1800==    by 0x401B94: run_script (execute.c:354)
+==1800==    by 0x40120E: main (quash.c:132)
+==1800==  If you believe this happened as a result of a stack
+==1800==  overflow in your program's main thread (unlikely but
+==1800==  possible), you can try to increase the size of the
+==1800==  main thread stack using the --main-stacksize= flag.
+==1800==  The main thread stack size used in this run was 8388608.
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 65): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 359): run_script()
+==1776== 
+==1776== HEAP SUMMARY:
+==1776==     in use at exit: 17,730 bytes in 5 blocks
+==1776==   total heap usage: 9 allocs, 4 frees, 1,067,650 bytes allocated
+==1776== 
+==1776== LEAK SUMMARY:
+==1776==    definitely lost: 0 bytes in 0 blocks
+==1776==    indirectly lost: 0 bytes in 0 blocks
+==1776==      possibly lost: 0 bytes in 0 blocks
+==1776==    still reachable: 17,730 bytes in 5 blocks
+==1776==         suppressed: 0 bytes in 0 blocks
+==1776== Reachable blocks (those to which a pointer was found) are not shown.
+==1776== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1776== 
+==1776== For counts of detected and suppressed errors, rerun with: -v
+==1776== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+IMPLEMENT ME: src/execute.c(line 325): create_process()
+IMPLEMENT ME: src/execute.c(line 107): run_generic()
+==1805== 
+==1800== 
+==1800== HEAP SUMMARY:
+==1800==     in use at exit: 17,730 bytes in 5 blocks
+==1800==   total heap usage: 24 allocs, 19 frees, 1,075,410 bytes allocated
+==1800== 
+==1805== HEAP SUMMARY:
+==1805==     in use at exit: 0 bytes in 0 blocks
+==1805==   total heap usage: 31 allocs, 31 frees, 1,079,282 bytes allocated
+==1805== 
+==1805== All heap blocks were freed -- no leaks are possible
+==1805== 
+==1805== For counts of detected and suppressed errors, rerun with: -v
+==1805== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1800== LEAK SUMMARY:
+==1800==    definitely lost: 0 bytes in 0 blocks
+==1800==    indirectly lost: 0 bytes in 0 blocks
+==1800==      possibly lost: 0 bytes in 0 blocks
+==1800==    still reachable: 17,730 bytes in 5 blocks
+==1800==         suppressed: 0 bytes in 0 blocks
+==1800== Reachable blocks (those to which a pointer was found) are not shown.
+==1800== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1800== 
+==1800== For counts of detected and suppressed errors, rerun with: -v
+==1800== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1792== 
+==1792== HEAP SUMMARY:
+==1792==     in use at exit: 0 bytes in 0 blocks
+==1792==   total heap usage: 17 allocs, 17 frees, 1,071,538 bytes allocated
+==1792== 
+==1792== All heap blocks were freed -- no leaks are possible
+==1792== 
+==1792== For counts of detected and suppressed errors, rerun with: -v
+==1792== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1585== 
+ERROR: Failed to execute program: Success
+==1585== HEAP SUMMARY:
+==1585==     in use at exit: 0 bytes in 0 blocks
+==1585==   total heap usage: 38 allocs, 38 frees, 1,083,154 bytes allocated
+==1585== 
+==1585== All heap blocks were freed -- no leaks are possible
+==1585== 
+==1585== For counts of detected and suppressed errors, rerun with: -v
+==1585== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1813== 
+==1813== HEAP SUMMARY:
+==1813==     in use at exit: 0 bytes in 0 blocks
+==1813==   total heap usage: 38 allocs, 38 frees, 1,083,154 bytes allocated
+==1813== 
+==1813== All heap blocks were freed -- no leaks are possible
+==1813== 
+==1813== For counts of detected and suppressed errors, rerun with: -v
+==1813== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

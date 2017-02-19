@@ -1,5 +1,13 @@
-0a1,4
+1,4c1,3
+< hello\\n
+< (null)
+< (null)
+< (null)
+---
 > sandbox
 > sandbox
 > hello
-> hello
+6,8d4
+< (null)
+< (null)
+< (null)
