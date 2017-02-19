@@ -26,7 +26,7 @@
  ***************************************************************************/
 
 //Worked on By: Brock Sauvage
-//Inspired by code from user Jonathan Leffler on Stack Overflow 
+//Inspired by code from user Jonathan Leffler on Stack Overflow
 //Link: stackoverflow.com/298510/how-to-get-the-current-directory-in-a-c-program
 // Return a string containing the current working directory.
 char* get_current_directory(bool* should_free) {
@@ -46,9 +46,6 @@ const char* lookup_env(const char* env_var) {
   // correctly
   // HINT: This should be pretty simple
   // Worked on by: Brock Sauvage
-
-  //This line uses the getenv function call to locate the environment variable passed
-  //in as a parameter
   env_var = getenv(env_var);
 
   // TODO: Remove warning silencers
@@ -152,13 +149,15 @@ void run_cd(CDCommand cmd) {
     perror("ERROR: Failed to resolve path");
     return;
   }
-
+  // Being worked on by Connor Welch
   // TODO: Change directory
+  chdir(dir);
 
   // TODO: Update the PWD environment variable to be the new current working
   // directory and optionally update OLD_PWD environment variable to be the old
   // working directory.
-  IMPLEMENT_ME();
+
+  setenv("PWD", dir, 1);
 }
 
 // Sends a signal to all processes contained in a job
@@ -175,7 +174,6 @@ void run_kill(KillCommand cmd) {
 }
 
 
-//Completed by Brock Sauvage. 
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
@@ -350,6 +348,7 @@ void create_process(CommandHolder holder) {
 	  
   IMPLEMENT_ME();
 
+
  if(pid == 0){
 	child_run_command(holder.cmd); // This should be done in the child branch of a fork
         exit(EXIT_SUCCESS);
@@ -357,6 +356,11 @@ void create_process(CommandHolder holder) {
   	parent_run_command(holder.cmd); // This should be done in the parent branch of
                                   	// a fork
  }
+
+
+  parent_run_command(holder.cmd); // This should be done in the parent branch of
+                                  // a fork
+  child_run_command(holder.cmd); // This should be done in the child branch of a fork
 
 }
 
@@ -382,7 +386,9 @@ void run_script(CommandHolder* holders) {
   if (!(holders[0].flags & BACKGROUND)) {
     // Not a background Job
     // TODO: Wait for all processes under the job to complete
-    IMPLEMENT_ME();
+    //keep track of pid and wait to finish
+    //waitpid(queue.getpid(), &queue.getwstatus, UNTRACED | CONTINUED)
+
   }
   else {
     // A background job.
