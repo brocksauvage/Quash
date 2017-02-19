@@ -1,0 +1,8 @@
+This
+should
+be
+the
+last
+line
+(null)
+(null)

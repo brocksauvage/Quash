@@ -45,7 +45,10 @@ const char* lookup_env(const char* env_var) {
   // correctly
   // HINT: This should be pretty simple
   // Worked on by: Brock Sauvage
-  getenv(env_var);
+
+  //This line uses the getenv function call to locate the environment variable passed
+  //in as a parameter
+  env_var = getenv(env_var);
 
   // TODO: Remove warning silencers
   //(void) env_var; // Silence unused variable warning
@@ -171,6 +174,7 @@ void run_kill(KillCommand cmd) {
 }
 
 
+//Completed by Brock Sauvage. 
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
@@ -310,9 +314,9 @@ void create_process(CommandHolder holder) {
   // TODO: Setup pipes, redirects, and new process
   IMPLEMENT_ME();
 
-  //parent_run_command(holder.cmd); // This should be done in the parent branch of
+  parent_run_command(holder.cmd); // This should be done in the parent branch of
                                   // a fork
-  //child_run_command(holder.cmd); // This should be done in the child branch of a fork
+  child_run_command(holder.cmd); // This should be done in the child branch of a fork
 }
 
 // Run a list of commands

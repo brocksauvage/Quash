@@ -1,2 +1,11 @@
-0a1
+1,8c1
+< Hello
+< World!
+< (null)
+< (null)
+< (null)
+< (null)
+< (null)
+< (null)
+---
 > Hello World!

@@ -1,17 +1,31 @@
-==2501== Memcheck, a memory error detector
-==2501== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==2501== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright info
-==2501== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==2501== 
+==25668== Memcheck, a memory error detector
+==25668== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==25668== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==25668== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==25668== 
 IMPLEMENT ME: src/execute.c(line 64): check_jobs_bg_status()
-IMPLEMENT ME: src/execute.c(line 314): create_process()
-IMPLEMENT ME: src/execute.c(line 343): run_script()
-==2501== 
-==2501== HEAP SUMMARY:
-==2501==     in use at exit: 0 bytes in 0 blocks
-==2501==   total heap usage: 8 allocs, 8 frees, 19,074 bytes allocated
-==2501== 
-==2501== All heap blocks were freed -- no leaks are possible
-==2501== 
-==2501== For counts of detected and suppressed errors, rerun with: -v
-==2501== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+IMPLEMENT ME: src/execute.c(line 315): create_process()
+==25668== Conditional jump or move depends on uninitialised value(s)
+==25668==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==25668==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==25668==    by 0x4016FA: run_echo (execute.c:123)
+==25668==    by 0x4018CC: child_run_command (execute.c:220)
+==25668==    by 0x401A50: create_process (execute.c:319)
+==25668==    by 0x401B22: run_script (execute.c:339)
+==25668==    by 0x4011BE: main (quash.c:132)
+==25668==  Uninitialised value was created by a heap allocation
+==25668==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==25668==    by 0x402CA8: __initialize_memory_pool (memory_pool.c:44)
+==25668==    by 0x402E22: initialize_memory_pool (memory_pool.c:89)
+==25668==    by 0x40119D: main (quash.c:128)
+==25668== 
+IMPLEMENT ME: src/execute.c(line 344): run_script()
+==25668== 
+==25668== HEAP SUMMARY:
+==25668==     in use at exit: 0 bytes in 0 blocks
+==25668==   total heap usage: 10 allocs, 10 frees, 2,116,226 bytes allocated
+==25668== 
+==25668== All heap blocks were freed -- no leaks are possible
+==25668== 
+==25668== For counts of detected and suppressed errors, rerun with: -v
+==25668== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
