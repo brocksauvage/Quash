@@ -1,55 +1,37 @@
-==12098== Memcheck, a memory error detector
-==12098== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==12098== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==12098== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==12098== 
-==12451== Invalid write of size 1
-==12451==    at 0x40255D: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x4027FB: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x4028DC: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x402AFD: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x402C61: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x401336: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x4E58730: (below main) (in /usr/lib64/libc-2.23.so)
-==12451==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==12451== 
-==12451== 
-==12451== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==12451==  Access not within mapped region at address 0x0
-==12451==    at 0x40255D: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x4027FB: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x4028DC: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x402AFD: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x402C61: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x401336: ??? (in /home/bsauvage/EECS678/Quash/quash/quash (deleted))
-==12451==    by 0x4E58730: (below main) (in /usr/lib64/libc-2.23.so)
-==12451==  If you believe this happened as a result of a stack
-==12451==  overflow in your program's main thread (unlikely but
-==12451==  possible), you can try to increase the size of the
-==12451==  main thread stack using the --main-stacksize= flag.
-==12451==  The main thread stack size used in this run was 8388608.
-==12098== 
-==12098== HEAP SUMMARY:
-==12098==     in use at exit: 0 bytes in 0 blocks
-==12098==   total heap usage: 9 allocs, 9 frees, 1,067,650 bytes allocated
-==12098== 
-==12098== All heap blocks were freed -- no leaks are possible
-==12098== 
-==12098== For counts of detected and suppressed errors, rerun with: -v
-==12098== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==12451== 
-==12451== HEAP SUMMARY:
-==12451==     in use at exit: 18,754 bytes in 6 blocks
-==12451==   total heap usage: 10 allocs, 4 frees, 1,068,674 bytes allocated
-==12451== 
-==12451== LEAK SUMMARY:
-==12451==    definitely lost: 0 bytes in 0 blocks
-==12451==    indirectly lost: 0 bytes in 0 blocks
-==12451==      possibly lost: 0 bytes in 0 blocks
-==12451==    still reachable: 18,754 bytes in 6 blocks
-==12451==         suppressed: 0 bytes in 0 blocks
-==12451== Reachable blocks (those to which a pointer was found) are not shown.
-==12451== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==12451== 
-==12451== For counts of detected and suppressed errors, rerun with: -v
-==12451== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==14104== Memcheck, a memory error detector
+==14104== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==14104== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==14104== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==14104== 
+==14498== Invalid write of size 1
+==14498==    at 0x402564: get_current_directory (execute.c:44)
+==14498==    by 0x40280A: run_pwd (execute.c:189)
+==14498==    by 0x4028DA: child_run_command (execute.c:232)
+==14498==    by 0x402AB5: create_process (execute.c:369)
+==14498==    by 0x402BA6: run_script (execute.c:400)
+==14498==    by 0x40132E: main (quash.c:132)
+==14498==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==14498== 
+==14498== 
+==14498== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==14498==  Access not within mapped region at address 0x0
+==14498==    at 0x402564: get_current_directory (execute.c:44)
+==14498==    by 0x40280A: run_pwd (execute.c:189)
+==14498==    by 0x4028DA: child_run_command (execute.c:232)
+==14498==    by 0x402AB5: create_process (execute.c:369)
+==14498==    by 0x402BA6: run_script (execute.c:400)
+==14498==    by 0x40132E: main (quash.c:132)
+==14498==  If you believe this happened as a result of a stack
+==14498==  overflow in your program's main thread (unlikely but
+==14498==  possible), you can try to increase the size of the
+==14498==  main thread stack using the --main-stacksize= flag.
+==14498==  The main thread stack size used in this run was 8388608.
+==14104== 
+==14104== HEAP SUMMARY:
+==14104==     in use at exit: 0 bytes in 0 blocks
+==14104==   total heap usage: 9 allocs, 9 frees, 1,067,650 bytes allocated
+==14104== 
+==14104== All heap blocks were freed -- no leaks are possible
+==14104== 
+==14104== For counts of detected and suppressed errors, rerun with: -v
+==14104== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

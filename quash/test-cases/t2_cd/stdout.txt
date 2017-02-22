@@ -1,6 +1,7 @@
 dir3-1
 dir3-2
 valgrind_expected.txt
+vgcore.14690
 /home/bsauvage/EECS678/Quash/quash/test-cases/t2_cd/sandbox/dir3
 (null)
 (null)

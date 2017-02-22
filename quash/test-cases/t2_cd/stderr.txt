@@ -1,97 +1,97 @@
-==12235== Memcheck, a memory error detector
-==12235== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==12235== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==12235== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==12235== 
+==14238== Memcheck, a memory error detector
+==14238== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==14238== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==14238== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==14238== 
 IMPLEMENT ME: src/execute.c(line 71): check_jobs_bg_status()
 IMPLEMENT ME: src/execute.c(line 365): create_process()
 IMPLEMENT ME: src/execute.c(line 365): create_process()
 IMPLEMENT ME: src/execute.c(line 71): check_jobs_bg_status()
+==14672== 
+==14672== HEAP SUMMARY:
+==14672==     in use at exit: 0 bytes in 0 blocks
+==14672==   total heap usage: 10 allocs, 10 frees, 1,071,746 bytes allocated
+==14672== 
+==14672== All heap blocks were freed -- no leaks are possible
+==14672== 
+==14672== For counts of detected and suppressed errors, rerun with: -v
+==14672== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+IMPLEMENT ME: src/execute.c(line 365): create_process()
 IMPLEMENT ME: src/execute.c(line 365): create_process()
 IMPLEMENT ME: src/execute.c(line 71): check_jobs_bg_status()
 IMPLEMENT ME: src/execute.c(line 365): create_process()
 IMPLEMENT ME: src/execute.c(line 365): create_process()
-IMPLEMENT ME: src/execute.c(line 365): create_process()
-==12474== Invalid write of size 1
-==12474==    at 0x40255D: get_current_directory (execute.c:44)
-==12474==    by 0x4027FB: run_pwd (execute.c:189)
-==12474==    by 0x4028DC: child_run_command (execute.c:232)
-==12474==    by 0x402AFD: create_process (execute.c:369)
-==12474==    by 0x402C61: run_script (execute.c:400)
-==12474==    by 0x401336: main (quash.c:132)
-==12474==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==12474== 
-==12474== 
-==12474== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==12474==  Access not within mapped region at address 0x0
-==12474==    at 0x40255D: get_current_directory (execute.c:44)
-==12474==    by 0x4027FB: run_pwd (execute.c:189)
-==12474==    by 0x4028DC: child_run_command (execute.c:232)
-==12474==    by 0x402AFD: create_process (execute.c:369)
-==12474==    by 0x402C61: run_script (execute.c:400)
-==12474==    by 0x401336: main (quash.c:132)
-==12474==  If you believe this happened as a result of a stack
-==12474==  overflow in your program's main thread (unlikely but
-==12474==  possible), you can try to increase the size of the
-==12474==  main thread stack using the --main-stacksize= flag.
-==12474==  The main thread stack size used in this run was 8388608.
-==12447== 
-==12447== HEAP SUMMARY:
-==12447==     in use at exit: 0 bytes in 0 blocks
-==12447==   total heap usage: 10 allocs, 10 frees, 1,071,746 bytes allocated
-==12447== 
-==12447== All heap blocks were freed -- no leaks are possible
-==12447== 
-==12447== For counts of detected and suppressed errors, rerun with: -v
-==12447== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==14690== Invalid write of size 1
+==14690==    at 0x402564: get_current_directory (execute.c:44)
+==14690==    by 0x40280A: run_pwd (execute.c:189)
+==14690==    by 0x4028DA: child_run_command (execute.c:232)
+==14690==    by 0x402AB5: create_process (execute.c:369)
+==14690==    by 0x402BA6: run_script (execute.c:400)
+==14690==    by 0x40132E: main (quash.c:132)
+==14690==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==14690== 
+==14690== 
+==14690== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==14690==  Access not within mapped region at address 0x0
+==14690==    at 0x402564: get_current_directory (execute.c:44)
+==14690==    by 0x40280A: run_pwd (execute.c:189)
+==14690==    by 0x4028DA: child_run_command (execute.c:232)
+==14690==    by 0x402AB5: create_process (execute.c:369)
+==14690==    by 0x402BA6: run_script (execute.c:400)
+==14690==    by 0x40132E: main (quash.c:132)
+==14690==  If you believe this happened as a result of a stack
+==14690==  overflow in your program's main thread (unlikely but
+==14690==  possible), you can try to increase the size of the
+==14690==  main thread stack using the --main-stacksize= flag.
+==14690==  The main thread stack size used in this run was 8388608.
 IMPLEMENT ME: src/execute.c(line 71): check_jobs_bg_status()
+==14690== 
+==14690== HEAP SUMMARY:
+==14690==     in use at exit: 18,754 bytes in 6 blocks
+==14690==   total heap usage: 27 allocs, 21 frees, 1,080,615 bytes allocated
+==14690== 
 IMPLEMENT ME: src/execute.c(line 365): create_process()
+==14690== LEAK SUMMARY:
+==14690==    definitely lost: 0 bytes in 0 blocks
+==14690==    indirectly lost: 0 bytes in 0 blocks
+==14690==      possibly lost: 0 bytes in 0 blocks
+==14690==    still reachable: 18,754 bytes in 6 blocks
+==14690==         suppressed: 0 bytes in 0 blocks
+==14690== Reachable blocks (those to which a pointer was found) are not shown.
+==14690== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14690== 
+==14690== For counts of detected and suppressed errors, rerun with: -v
+==14690== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 IMPLEMENT ME: src/execute.c(line 365): create_process()
-==12235== 
-==12235== HEAP SUMMARY:
-==12235==     in use at exit: 0 bytes in 0 blocks
-==12235==   total heap usage: 34 allocs, 34 frees, 1,083,479 bytes allocated
-==12235== 
-==12235== All heap blocks were freed -- no leaks are possible
-==12235== 
-==12235== For counts of detected and suppressed errors, rerun with: -v
-==12235== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==12490== Conditional jump or move depends on uninitialised value(s)
-==12490==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==12490==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12490==    by 0x40271D: run_echo (execute.c:130)
-==12490==    by 0x4028D0: child_run_command (execute.c:228)
-==12490==    by 0x402AFD: create_process (execute.c:369)
-==12490==    by 0x402C61: run_script (execute.c:400)
-==12490==    by 0x401336: main (quash.c:132)
-==12490==  Uninitialised value was created by a heap allocation
-==12490==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==12490==    by 0x403DD4: __initialize_memory_pool (memory_pool.c:44)
-==12490==    by 0x403F4E: initialize_memory_pool (memory_pool.c:89)
-==12490==    by 0x401315: main (quash.c:128)
-==12490== 
-==12474== 
-==12474== HEAP SUMMARY:
-==12474==     in use at exit: 18,754 bytes in 6 blocks
-==12474==   total heap usage: 27 allocs, 21 frees, 1,080,615 bytes allocated
-==12474== 
-==12474== LEAK SUMMARY:
-==12474==    definitely lost: 0 bytes in 0 blocks
-==12474==    indirectly lost: 0 bytes in 0 blocks
-==12474==      possibly lost: 0 bytes in 0 blocks
-==12474==    still reachable: 18,754 bytes in 6 blocks
-==12474==         suppressed: 0 bytes in 0 blocks
-==12474== Reachable blocks (those to which a pointer was found) are not shown.
-==12474== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==12474== 
-==12474== For counts of detected and suppressed errors, rerun with: -v
-==12474== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==12490== 
-==12490== HEAP SUMMARY:
-==12490==     in use at exit: 0 bytes in 0 blocks
-==12490==   total heap usage: 35 allocs, 35 frees, 2,132,055 bytes allocated
-==12490== 
-==12490== All heap blocks were freed -- no leaks are possible
-==12490== 
-==12490== For counts of detected and suppressed errors, rerun with: -v
-==12490== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
+==14238== 
+==14238== HEAP SUMMARY:
+==14238==     in use at exit: 0 bytes in 0 blocks
+==14238==   total heap usage: 34 allocs, 34 frees, 1,083,479 bytes allocated
+==14238== 
+==14238== All heap blocks were freed -- no leaks are possible
+==14238== 
+==14238== For counts of detected and suppressed errors, rerun with: -v
+==14238== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==14706== Conditional jump or move depends on uninitialised value(s)
+==14706==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==14706==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==14706==    by 0x402729: run_echo (execute.c:130)
+==14706==    by 0x4028CE: child_run_command (execute.c:228)
+==14706==    by 0x402AB5: create_process (execute.c:369)
+==14706==    by 0x402BA6: run_script (execute.c:400)
+==14706==    by 0x40132E: main (quash.c:132)
+==14706==  Uninitialised value was created by a heap allocation
+==14706==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==14706==    by 0x403D00: __initialize_memory_pool (memory_pool.c:44)
+==14706==    by 0x403E7A: initialize_memory_pool (memory_pool.c:89)
+==14706==    by 0x40130D: main (quash.c:128)
+==14706== 
+==14706== 
+==14706== HEAP SUMMARY:
+==14706==     in use at exit: 0 bytes in 0 blocks
+==14706==   total heap usage: 35 allocs, 35 frees, 2,132,055 bytes allocated
+==14706== 
+==14706== All heap blocks were freed -- no leaks are possible
+==14706== 
+==14706== For counts of detected and suppressed errors, rerun with: -v
+==14706== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)

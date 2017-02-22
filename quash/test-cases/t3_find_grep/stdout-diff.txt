@@ -1,16 +1,10 @@
-1,8c1
-< ‡(­û/home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir1/valgrind_expected.txt
+1,2d0
+< ‡(­û
 < /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir1/lorem_ipsum.txt
+4,7d1
 < /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir2/test1.txt
-< /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir2/test3.txt
 < /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir2/test2.txt
-< /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/valgrind_expected.txt
-< /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/lorem_ipsum.txt
-< /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/.valgrind_expected.txt
----
-> /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir1/valgrind_expected.txt
-10d2
+< /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir2/test3.txt
 < /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/dir3/dir3-1/lorem_ipsum.txt
-11a4,5
-> /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/.valgrind_expected.txt
-> /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/valgrind_expected.txt
+10d3
+< /home/bsauvage/EECS678/Quash/quash/test-cases/t3_find_grep/sandbox/lorem_ipsum.txt

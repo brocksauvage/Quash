@@ -1,37 +1,28 @@
-==12234== Memcheck, a memory error detector
-==12234== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==12234== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==12234== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==12234== 
-==12462== Conditional jump or move depends on uninitialised value(s)
-==12462==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==12462==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12462==    by 0x40271D: run_echo (execute.c:130)
-==12462==    by 0x4028D0: child_run_command (execute.c:228)
-==12462==    by 0x402AFD: create_process (execute.c:369)
-==12462==    by 0x402C61: run_script (execute.c:400)
-==12462==    by 0x401336: main (quash.c:132)
-==12462==  Uninitialised value was created by a heap allocation
-==12462==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==12462==    by 0x403DD4: __initialize_memory_pool (memory_pool.c:44)
-==12462==    by 0x403F4E: initialize_memory_pool (memory_pool.c:89)
-==12462==    by 0x401315: main (quash.c:128)
-==12462== 
-==12234== 
-==12234== HEAP SUMMARY:
-==12234==     in use at exit: 0 bytes in 0 blocks
-==12234==   total heap usage: 7 allocs, 7 frees, 1,066,386 bytes allocated
-==12234== 
-==12234== All heap blocks were freed -- no leaks are possible
-==12234== 
-==12234== For counts of detected and suppressed errors, rerun with: -v
-==12234== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==12462== 
-==12462== HEAP SUMMARY:
-==12462==     in use at exit: 0 bytes in 0 blocks
-==12462==   total heap usage: 8 allocs, 8 frees, 2,114,962 bytes allocated
-==12462== 
-==12462== All heap blocks were freed -- no leaks are possible
-==12462== 
-==12462== For counts of detected and suppressed errors, rerun with: -v
-==12462== ERROR SUMMARY: 5 errors from 1 contexts (suppressed: 0 from 0)
+==14224== Memcheck, a memory error detector
+==14224== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==14224== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==14224== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==14224== 
+==14554== Conditional jump or move depends on uninitialised value(s)
+==14554==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==14554==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==14554==    by 0x402729: run_echo (execute.c:130)
+==14554==    by 0x4028CE: child_run_command (execute.c:228)
+==14554==    by 0x402AB5: create_process (execute.c:369)
+==14554==    by 0x402BA6: run_script (execute.c:400)
+==14554==    by 0x40132E: main (quash.c:132)
+==14554==  Uninitialised value was created by a heap allocation
+==14554==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==14554==    by 0x403D00: __initialize_memory_pool (memory_pool.c:44)
+==14554==    by 0x403E7A: initialize_memory_pool (memory_pool.c:89)
+==14554==    by 0x40130D: main (quash.c:128)
+==14554== 
+==14224== 
+==14224== HEAP SUMMARY:
+==14224==     in use at exit: 0 bytes in 0 blocks
+==14224==   total heap usage: 7 allocs, 7 frees, 1,066,386 bytes allocated
+==14224== 
+==14224== All heap blocks were freed -- no leaks are possible
+==14224== 
+==14224== For counts of detected and suppressed errors, rerun with: -v
+==14224== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

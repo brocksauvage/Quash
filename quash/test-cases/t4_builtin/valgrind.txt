@@ -1,175 +1,158 @@
-==12418== Memcheck, a memory error detector
-==12418== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==12418== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==12418== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==12418== 
-==12547== Invalid write of size 1
-==12547==    at 0x40255D: get_current_directory (execute.c:44)
-==12547==    by 0x4027FB: run_pwd (execute.c:189)
-==12547==    by 0x4028DC: child_run_command (execute.c:232)
-==12547==    by 0x402AFD: create_process (execute.c:369)
-==12547==    by 0x402C61: run_script (execute.c:400)
-==12547==    by 0x401336: main (quash.c:132)
-==12547==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==12547== 
-==12547== 
-==12547== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==12547==  Access not within mapped region at address 0x0
-==12547==    at 0x40255D: get_current_directory (execute.c:44)
-==12547==    by 0x4027FB: run_pwd (execute.c:189)
-==12547==    by 0x4028DC: child_run_command (execute.c:232)
-==12547==    by 0x402AFD: create_process (execute.c:369)
-==12547==    by 0x402C61: run_script (execute.c:400)
-==12547==    by 0x401336: main (quash.c:132)
-==12547==  If you believe this happened as a result of a stack
-==12547==  overflow in your program's main thread (unlikely but
-==12547==  possible), you can try to increase the size of the
-==12547==  main thread stack using the --main-stacksize= flag.
-==12547==  The main thread stack size used in this run was 8388608.
-==12552== Invalid write of size 1
-==12552==    at 0x40255D: get_current_directory (execute.c:44)
-==12552==    by 0x4027FB: run_pwd (execute.c:189)
-==12552==    by 0x4028DC: child_run_command (execute.c:232)
-==12552==    by 0x402AFD: create_process (execute.c:369)
-==12552==    by 0x402C61: run_script (execute.c:400)
-==12552==    by 0x401336: main (quash.c:132)
-==12552==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==12552== 
-==12552== 
-==12552== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==12552==  Access not within mapped region at address 0x0
-==12552==    at 0x40255D: get_current_directory (execute.c:44)
-==12552==    by 0x4027FB: run_pwd (execute.c:189)
-==12552==    by 0x4028DC: child_run_command (execute.c:232)
-==12552==    by 0x402AFD: create_process (execute.c:369)
-==12552==    by 0x402C61: run_script (execute.c:400)
-==12552==    by 0x401336: main (quash.c:132)
-==12552==  If you believe this happened as a result of a stack
-==12552==  overflow in your program's main thread (unlikely but
-==12552==  possible), you can try to increase the size of the
-==12552==  main thread stack using the --main-stacksize= flag.
-==12552==  The main thread stack size used in this run was 8388608.
-==12557== Conditional jump or move depends on uninitialised value(s)
-==12557==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==12557==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12557==    by 0x40271D: run_echo (execute.c:130)
-==12557==    by 0x4028D0: child_run_command (execute.c:228)
-==12557==    by 0x402AFD: create_process (execute.c:369)
-==12557==    by 0x402C61: run_script (execute.c:400)
-==12557==    by 0x401336: main (quash.c:132)
-==12557==  Uninitialised value was created by a heap allocation
-==12557==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==12557==    by 0x403DD4: __initialize_memory_pool (memory_pool.c:44)
-==12557==    by 0x403F4E: initialize_memory_pool (memory_pool.c:89)
-==12557==    by 0x401315: main (quash.c:128)
-==12557== 
-==12557== Invalid read of size 1
-==12557==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==12557==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12557==    by 0x40271D: run_echo (execute.c:130)
-==12557==    by 0x4028D0: child_run_command (execute.c:228)
-==12557==    by 0x402AFD: create_process (execute.c:369)
-==12557==    by 0x402C61: run_script (execute.c:400)
-==12557==    by 0x401336: main (quash.c:132)
-==12557==  Address 0x7270007367726178 is not stack'd, malloc'd or (recently) free'd
-==12557== 
-==12557== 
-==12557== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==12557==  General Protection Fault
-==12557==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==12557==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12557==    by 0x40271D: run_echo (execute.c:130)
-==12557==    by 0x4028D0: child_run_command (execute.c:228)
-==12557==    by 0x402AFD: create_process (execute.c:369)
-==12557==    by 0x402C61: run_script (execute.c:400)
-==12557==    by 0x401336: main (quash.c:132)
-==12559== Conditional jump or move depends on uninitialised value(s)
-==12559==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==12559==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12559==    by 0x40271D: run_echo (execute.c:130)
-==12559==    by 0x4028D0: child_run_command (execute.c:228)
-==12559==    by 0x402AFD: create_process (execute.c:369)
-==12559==    by 0x402C61: run_script (execute.c:400)
-==12559==    by 0x401336: main (quash.c:132)
-==12559==  Uninitialised value was created by a heap allocation
-==12559==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==12559==    by 0x403DD4: __initialize_memory_pool (memory_pool.c:44)
-==12559==    by 0x403F4E: initialize_memory_pool (memory_pool.c:89)
-==12559==    by 0x401315: main (quash.c:128)
-==12559== 
-==12559== Invalid read of size 1
-==12559==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==12559==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12559==    by 0x40271D: run_echo (execute.c:130)
-==12559==    by 0x4028D0: child_run_command (execute.c:228)
-==12559==    by 0x402AFD: create_process (execute.c:369)
-==12559==    by 0x402C61: run_script (execute.c:400)
-==12559==    by 0x401336: main (quash.c:132)
-==12559==  Address 0x7478742e6f686365 is not stack'd, malloc'd or (recently) free'd
-==12559== 
-==12559== 
-==12559== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==12559==  General Protection Fault
-==12559==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==12559==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==12559==    by 0x40271D: run_echo (execute.c:130)
-==12559==    by 0x4028D0: child_run_command (execute.c:228)
-==12559==    by 0x402AFD: create_process (execute.c:369)
-==12559==    by 0x402C61: run_script (execute.c:400)
-==12559==    by 0x401336: main (quash.c:132)
-==12547== 
-==12547== HEAP SUMMARY:
-==12547==     in use at exit: 18,754 bytes in 6 blocks
-==12547==   total heap usage: 10 allocs, 4 frees, 1,068,674 bytes allocated
-==12547== 
-==12547== LEAK SUMMARY:
-==12547==    definitely lost: 0 bytes in 0 blocks
-==12547==    indirectly lost: 0 bytes in 0 blocks
-==12547==      possibly lost: 0 bytes in 0 blocks
-==12547==    still reachable: 18,754 bytes in 6 blocks
-==12547==         suppressed: 0 bytes in 0 blocks
-==12547== Reachable blocks (those to which a pointer was found) are not shown.
-==12547== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==12547== 
-==12547== For counts of detected and suppressed errors, rerun with: -v
-==12547== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==12418== 
-==12418== HEAP SUMMARY:
-==12418==     in use at exit: 0 bytes in 0 blocks
-==12418==   total heap usage: 30 allocs, 30 frees, 2,127,522 bytes allocated
-==12418== 
-==12418== All heap blocks were freed -- no leaks are possible
-==12418== 
-==12418== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==12557== 
-==12557== HEAP SUMMARY:
-==12557==     in use at exit: 17,730 bytes in 5 blocks
-==12557==   total heap usage: 24 allocs, 19 frees, 2,124,834 bytes allocated
-==12557== 
-==12557== LEAK SUMMARY:
-==12557==    definitely lost: 0 bytes in 0 blocks
-==12557==    indirectly lost: 0 bytes in 0 blocks
-==12557==      possibly lost: 0 bytes in 0 blocks
-==12557==    still reachable: 17,730 bytes in 5 blocks
-==12557==         suppressed: 0 bytes in 0 blocks
-==12557== Reachable blocks (those to which a pointer was found) are not shown.
-==12557== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==12557== 
-==12557== For counts of detected and suppressed errors, rerun with: -v
-==12557== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
-==12552== 
-==12552== HEAP SUMMARY:
-==12552==     in use at exit: 18,754 bytes in 6 blocks
-==12552==   total heap usage: 14 allocs, 8 frees, 2,118,594 bytes allocated
-==12552== 
-==12552== LEAK SUMMARY:
-==12552==    definitely lost: 0 bytes in 0 blocks
-==12552==    indirectly lost: 0 bytes in 0 blocks
-==12552==      possibly lost: 0 bytes in 0 blocks
-==12552==    still reachable: 18,754 bytes in 6 blocks
-==12552==         suppressed: 0 bytes in 0 blocks
-==12552== Reachable blocks (those to which a pointer was found) are not shown.
-==12552== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==12552== 
-==12552== For counts of detected and suppressed errors, rerun with: -v
-==12552== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==14645== Memcheck, a memory error detector
+==14645== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==14645== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==14645== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==14645== 
+==14969== Invalid write of size 1
+==14969==    at 0x402564: get_current_directory (execute.c:44)
+==14969==    by 0x40280A: run_pwd (execute.c:189)
+==14969==    by 0x4028DA: child_run_command (execute.c:232)
+==14969==    by 0x402AB5: create_process (execute.c:369)
+==14969==    by 0x402BA6: run_script (execute.c:400)
+==14969==    by 0x40132E: main (quash.c:132)
+==14969==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==14969== 
+==14969== 
+==14969== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==14969==  Access not within mapped region at address 0x0
+==14969==    at 0x402564: get_current_directory (execute.c:44)
+==14969==    by 0x40280A: run_pwd (execute.c:189)
+==14969==    by 0x4028DA: child_run_command (execute.c:232)
+==14969==    by 0x402AB5: create_process (execute.c:369)
+==14969==    by 0x402BA6: run_script (execute.c:400)
+==14969==    by 0x40132E: main (quash.c:132)
+==14969==  If you believe this happened as a result of a stack
+==14969==  overflow in your program's main thread (unlikely but
+==14969==  possible), you can try to increase the size of the
+==14969==  main thread stack using the --main-stacksize= flag.
+==14969==  The main thread stack size used in this run was 8388608.
+==14985== Invalid write of size 1
+==14985==    at 0x402564: get_current_directory (execute.c:44)
+==14985==    by 0x40280A: run_pwd (execute.c:189)
+==14985==    by 0x4028DA: child_run_command (execute.c:232)
+==14985==    by 0x402AB5: create_process (execute.c:369)
+==14985==    by 0x402BA6: run_script (execute.c:400)
+==14985==    by 0x40132E: main (quash.c:132)
+==14985==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==14985== 
+==14985== 
+==14985== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==14985==  Access not within mapped region at address 0x0
+==14985==    at 0x402564: get_current_directory (execute.c:44)
+==14985==    by 0x40280A: run_pwd (execute.c:189)
+==14985==    by 0x4028DA: child_run_command (execute.c:232)
+==14985==    by 0x402AB5: create_process (execute.c:369)
+==14985==    by 0x402BA6: run_script (execute.c:400)
+==14985==    by 0x40132E: main (quash.c:132)
+==14985==  If you believe this happened as a result of a stack
+==14985==  overflow in your program's main thread (unlikely but
+==14985==  possible), you can try to increase the size of the
+==14985==  main thread stack using the --main-stacksize= flag.
+==14985==  The main thread stack size used in this run was 8388608.
+==14969== 
+==14999== Conditional jump or move depends on uninitialised value(s)
+==15003== Conditional jump or move depends on uninitialised value(s)
+==14999==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==15003==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==15003==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==15003==    by 0x4028CE: child_run_command (execute.c:228)
+==14999==    by 0x402729: run_echo (execute.c:130)
+==15003==    by 0x402AB5: create_process (execute.c:369)
+==14999==    by 0x4028CE: child_run_command (execute.c:228)
+==14999==    by 0x402AB5: create_process (execute.c:369)
+==14999==    by 0x402BA6: run_script (execute.c:400)
+==14999==    by 0x40132E: main (quash.c:132)
+==14999==  Uninitialised value was created by a heap allocation
+==14999==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==14999==    by 0x403D00: __initialize_memory_pool (memory_pool.c:44)
+==14999==    by 0x403E7A: initialize_memory_pool (memory_pool.c:89)
+==14999==    by 0x40130D: main (quash.c:128)
+==14999== 
+==15003==    by 0x402BA6: run_script (execute.c:400)
+==15003==    by 0x40132E: main (quash.c:132)
+==15003==  Uninitialised value was created by a heap allocation
+==15003==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==15003==    by 0x403D00: __initialize_memory_pool (memory_pool.c:44)
+==14999== Invalid read of size 1
+==15003==    by 0x403E7A: initialize_memory_pool (memory_pool.c:89)
+==15003==    by 0x40130D: main (quash.c:128)
+==15003== 
+==14999==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==14999==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==14999==    by 0x402729: run_echo (execute.c:130)
+==14999==    by 0x4028CE: child_run_command (execute.c:228)
+==14999==    by 0x402AB5: create_process (execute.c:369)
+==14999==    by 0x402BA6: run_script (execute.c:400)
+==14999==    by 0x40132E: main (quash.c:132)
+==14999==  Address 0x7270007367726178 is not stack'd, malloc'd or (recently) free'd
+==14999== 
+==14999== 
+==14999== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==14999==  General Protection Fault
+==14999==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==14999==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==14999==    by 0x402729: run_echo (execute.c:130)
+==14999==    by 0x4028CE: child_run_command (execute.c:228)
+==14999==    by 0x402AB5: create_process (execute.c:369)
+==14999==    by 0x402BA6: run_script (execute.c:400)
+==14999==    by 0x40132E: main (quash.c:132)
+==14969== HEAP SUMMARY:
+==14969==     in use at exit: 18,754 bytes in 6 blocks
+==14969==   total heap usage: 10 allocs, 4 frees, 1,068,674 bytes allocated
+==14969== 
+==15003== Invalid read of size 1
+==15003==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==15003==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==15003==    by 0x402729: run_echo (execute.c:130)
+==15003==    by 0x4028CE: child_run_command (execute.c:228)
+==15003==    by 0x402AB5: create_process (execute.c:369)
+==15003==    by 0x402BA6: run_script (execute.c:400)
+==15003==    by 0x40132E: main (quash.c:132)
+==15003==  Address 0x7478742e6f686365 is not stack'd, malloc'd or (recently) free'd
+==15003== 
+==15003== 
+==15003== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==15003==  General Protection Fault
+==15003==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==15003==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==15003==    by 0x402729: run_echo (execute.c:130)
+==15003==    by 0x4028CE: child_run_command (execute.c:228)
+==15003==    by 0x402AB5: create_process (execute.c:369)
+==15003==    by 0x402BA6: run_script (execute.c:400)
+==15003==    by 0x40132E: main (quash.c:132)
+==14969== LEAK SUMMARY:
+==14969==    definitely lost: 0 bytes in 0 blocks
+==14969==    indirectly lost: 0 bytes in 0 blocks
+==14969==      possibly lost: 0 bytes in 0 blocks
+==14969==    still reachable: 18,754 bytes in 6 blocks
+==14969==         suppressed: 0 bytes in 0 blocks
+==14969== Reachable blocks (those to which a pointer was found) are not shown.
+==14969== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14969== 
+==14969== For counts of detected and suppressed errors, rerun with: -v
+==14969== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==14985== 
+==14645== 
+==14985== HEAP SUMMARY:
+==14985==     in use at exit: 18,754 bytes in 6 blocks
+==14985==   total heap usage: 14 allocs, 8 frees, 2,118,594 bytes allocated
+==14985== 
+==14645== HEAP SUMMARY:
+==14645==     in use at exit: 0 bytes in 0 blocks
+==14645==   total heap usage: 30 allocs, 30 frees, 2,127,522 bytes allocated
+==14645== 
+==14645== All heap blocks were freed -- no leaks are possible
+==14645== 
+==14645== For counts of detected and suppressed errors, rerun with: -v
+==14645== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==14985== LEAK SUMMARY:
+==14985==    definitely lost: 0 bytes in 0 blocks
+==14985==    indirectly lost: 0 bytes in 0 blocks
+==14985==      possibly lost: 0 bytes in 0 blocks
+==14985==    still reachable: 18,754 bytes in 6 blocks
+==14985==         suppressed: 0 bytes in 0 blocks
+==14985== Reachable blocks (those to which a pointer was found) are not shown.
+==14985== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14985== 
+==14985== For counts of detected and suppressed errors, rerun with: -v
+==14985== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
