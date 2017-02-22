@@ -21,6 +21,11 @@
 #define IMPLEMENT_ME()                                                  \
   fprintf(stderr, "IMPLEMENT ME: %s(line %d): %s()\n", __FILE__, __LINE__, __FUNCTION__)
 
+//Set up our queues as needed
+
+IMPLEMENT_DEQUE_STRUCT(PIDS, pid_t);
+IMPLEMENT_DEQUE(PIDS, pid_t);
+
 /***************************************************************************
  * Interface Functions
  ***************************************************************************/
@@ -32,11 +37,14 @@
 char* get_current_directory(bool* should_free) {
   // TODO: Get the current working directory. This will fix the prompt path.
   // HINT: This should be pretty simple
-  char pwd[1024];
+  char *pwd;
+  char *buf;
+  buf = (char *)malloc(1024);
   // Change this to true if necessary
   *should_free = false;
-
-  return (getcwd(pwd, 1024));
+  pwd = getcwd(buf, 1024);
+  free(buf);
+  return (pwd);
 }
 
 // Returns the value of an environment variable env_var
@@ -46,12 +54,13 @@ const char* lookup_env(const char* env_var) {
   // correctly
   // HINT: This should be pretty simple
   // Worked on by: Brock Sauvage
-  env_var = getenv(env_var);
+  char *buf;
+  buf = getenv(env_var);
 
   // TODO: Remove warning silencers
   //(void) env_var; // Silence unused variable warning
 
-  return env_var;
+  return buf;
 }
 
 // Check the status of background jobs
@@ -101,9 +110,9 @@ void run_generic(GenericCommand cmd) {
   (void) args; // Silence unused variable warning
 
   // TODO: Implement run generic
-  IMPLEMENT_ME();
+  execvp(args[0], args);
 
-  perror("ERROR: Failed to execute program");
+  //perror("ERROR: Failed to execute program");
 }
 
 // Print strings
@@ -136,7 +145,7 @@ void run_export(ExportCommand cmd) {
 
   // TODO: Implement export.
   // HINT: This should be quite simple.
-  IMPLEMENT_ME();
+  setenv(env_var, val, 1);
 }
 
 // Changes the current working directory
@@ -170,14 +179,14 @@ void run_kill(KillCommand cmd) {
   (void) job_id; // Silence unused variable warning
 
   // TODO: Kill all processes associated with a background job
-  IMPLEMENT_ME();
+  kill(job_id, signal);
 }
 
 
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
-  fprintf(stdout, "%s\n", get_current_directory(false));
+  fprintf(stdout, "%s\n", get_current_directory(0));
 
   // Flush the buffer before returning
   fflush(stdout);
@@ -279,6 +288,7 @@ void parent_run_command(Command cmd) {
   }
 }
 
+
 /**
  * @brief Creates one new process centered around the @a Command in the @a
  * CommandHolder setting up redirects and pipes where needed
@@ -332,6 +342,10 @@ void create_process(CommandHolder holder) {
   {
 	FILE *fin;
 	if(p_out){
+		//set up another parent-child branch.
+		//in child, use dup2 to stdout, push pipe on queue, then destroy pipe
+		//execute child run command, and then exit
+		//for adult, push pid on to queue, as well as the pipe. run parent command
 		int pipefd[2];
 		int pipe(pipefd);
 	}
@@ -342,7 +356,9 @@ void create_process(CommandHolder holder) {
 		printf(stderr, "\nError setting up process.");
 	}
   }
-  else{}
+  else{
+	//fork as usual, run commands. Exit on child, push PID to queue in parent
+  }
 
   pid = fork();
 	  
@@ -358,9 +374,9 @@ void create_process(CommandHolder holder) {
  }
 
 
-  parent_run_command(holder.cmd); // This should be done in the parent branch of
+  //parent_run_command(holder.cmd); // This should be done in the parent branch of
                                   // a fork
-  child_run_command(holder.cmd); // This should be done in the child branch of a fork
+  //child_run_command(holder.cmd); // This should be done in the child branch of a fork
 
 }
 
