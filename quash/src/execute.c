@@ -9,6 +9,7 @@
 
 #include "execute.h"
 #include <stdlib.h>
+#include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <deque.h>
@@ -38,12 +39,9 @@ char* get_current_directory(bool* should_free) {
   // TODO: Get the current working directory. This will fix the prompt path.
   // HINT: This should be pretty simple
   char *pwd;
-  char *buf;
-  buf = (char *)malloc(1024);
   // Change this to true if necessary
-  *should_free = false;
-  pwd = getcwd(buf, 1024);
-  free(buf);
+  *should_free = true;
+  pwd = getcwd(NULL, 0);
   return (pwd);
 }
 
