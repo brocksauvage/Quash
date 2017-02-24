@@ -1,38 +1,72 @@
-==23659== Memcheck, a memory error detector
-==23659== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==23659== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==23659== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==23659== 
-IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
-==24015== Conditional jump or move depends on uninitialised value(s)
-==24015==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==24015==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==24015==    by 0x403B62: run_echo (execute.c:153)
-==24015==    by 0x403D02: child_run_command (execute.c:255)
-==24015==    by 0x403EE8: create_process (execute.c:372)
-==24015==    by 0x404035: run_script (execute.c:410)
-==24015==    by 0x4013FE: main (quash.c:132)
-==24015==  Uninitialised value was created by a heap allocation
-==24015==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==24015==    by 0x405190: __initialize_memory_pool (memory_pool.c:44)
-==24015==    by 0x40530A: initialize_memory_pool (memory_pool.c:89)
-==24015==    by 0x4013DD: main (quash.c:128)
-==24015== 
-==23659== 
-==23659== HEAP SUMMARY:
-==23659==     in use at exit: 0 bytes in 0 blocks
-==23659==   total heap usage: 9 allocs, 9 frees, 1,067,650 bytes allocated
-==23659== 
-==23659== All heap blocks were freed -- no leaks are possible
-==23659== 
-==23659== For counts of detected and suppressed errors, rerun with: -v
-==23659== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==24015== 
-==24015== HEAP SUMMARY:
-==24015==     in use at exit: 0 bytes in 0 blocks
-==24015==   total heap usage: 10 allocs, 10 frees, 2,116,226 bytes allocated
-==24015== 
-==24015== All heap blocks were freed -- no leaks are possible
-==24015== 
-==24015== For counts of detected and suppressed errors, rerun with: -v
-==24015== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
+==20274== Memcheck, a memory error detector
+==20274== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20274== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==20274== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==20274== 
+IMPLEMENT ME: src/execute.c(line 99): check_jobs_bg_status()
+==20274== Invalid free() / delete / delete[] / realloc()
+==20274==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
+==20274==    by 0x404126: run_script (execute.c:446)
+==20274==    by 0x40144E: main (quash.c:132)
+==20274==  Address 0xffeffef70 is on thread 1's stack
+==20274==  in frame #1, created by run_script (execute.c:399)
+==20274== 
+==20274== Invalid free() / delete / delete[] / realloc()
+==20274==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
+==20274==    by 0x404132: run_script (execute.c:447)
+==20274==    by 0x40144E: main (quash.c:132)
+==20274==  Address 0xffeffef40 is on thread 1's stack
+==20274==  in frame #1, created by run_script (execute.c:399)
+==20274== 
+==20591== Conditional jump or move depends on uninitialised value(s)
+==20591==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==20591==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==20591==    by 0x403A9F: run_echo (execute.c:158)
+==20591==    by 0x403C3F: child_run_command (execute.c:260)
+==20591==    by 0x403E25: create_process (execute.c:377)
+==20591==    by 0x404065: run_script (execute.c:422)
+==20591==    by 0x40144E: main (quash.c:132)
+==20591==  Uninitialised value was created by a heap allocation
+==20591==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20591==    by 0x4051FC: __initialize_memory_pool (memory_pool.c:44)
+==20591==    by 0x405376: initialize_memory_pool (memory_pool.c:89)
+==20591==    by 0x40142D: main (quash.c:128)
+==20591== 
+==20274== 
+==20274== HEAP SUMMARY:
+==20274==     in use at exit: 67 bytes in 2 blocks
+==20274==   total heap usage: 12 allocs, 12 frees, 1,067,721 bytes allocated
+==20274== 
+==20274== 56 bytes in 1 blocks are definitely lost in loss record 2 of 2
+==20274==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20274==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
+==20274==    by 0x403F45: run_script (execute.c:412)
+==20274==    by 0x40144E: main (quash.c:132)
+==20274== 
+==20274== LEAK SUMMARY:
+==20274==    definitely lost: 56 bytes in 1 blocks
+==20274==    indirectly lost: 0 bytes in 0 blocks
+==20274==      possibly lost: 0 bytes in 0 blocks
+==20274==    still reachable: 11 bytes in 1 blocks
+==20274==         suppressed: 0 bytes in 0 blocks
+==20274== Reachable blocks (those to which a pointer was found) are not shown.
+==20274== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==20274== 
+==20274== For counts of detected and suppressed errors, rerun with: -v
+==20274== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==20591== 
+==20591== HEAP SUMMARY:
+==20591==     in use at exit: 71 bytes in 3 blocks
+==20591==   total heap usage: 13 allocs, 10 frees, 2,116,297 bytes allocated
+==20591== 
+==20591== LEAK SUMMARY:
+==20591==    definitely lost: 0 bytes in 0 blocks
+==20591==    indirectly lost: 0 bytes in 0 blocks
+==20591==      possibly lost: 0 bytes in 0 blocks
+==20591==    still reachable: 71 bytes in 3 blocks
+==20591==         suppressed: 0 bytes in 0 blocks
+==20591== Reachable blocks (those to which a pointer was found) are not shown.
+==20591== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==20591== 
+==20591== For counts of detected and suppressed errors, rerun with: -v
+==20591== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)

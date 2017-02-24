@@ -1,85 +1,159 @@
-==23799== Memcheck, a memory error detector
-==23799== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==23799== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==23799== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==23799== 
-==24013== Invalid write of size 1
-==24013==    at 0x4039AB: get_current_directory (execute.c:68)
-==24013==    by 0x403C3E: run_pwd (execute.c:212)
-==24013==    by 0x403D0E: child_run_command (execute.c:259)
-==24013==    by 0x403EE8: create_process (execute.c:372)
-==24013==    by 0x404035: run_script (execute.c:410)
-==24013==    by 0x4013FE: main (quash.c:132)
-==24013==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==24013== 
-==24013== 
-==24013== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==24013==  Access not within mapped region at address 0x0
-==24013==    at 0x4039AB: get_current_directory (execute.c:68)
-==24013==    by 0x403C3E: run_pwd (execute.c:212)
-==24013==    by 0x403D0E: child_run_command (execute.c:259)
-==24013==    by 0x403EE8: create_process (execute.c:372)
-==24013==    by 0x404035: run_script (execute.c:410)
-==24013==    by 0x4013FE: main (quash.c:132)
-==24013==  If you believe this happened as a result of a stack
-==24013==  overflow in your program's main thread (unlikely but
-==24013==  possible), you can try to increase the size of the
-==24013==  main thread stack using the --main-stacksize= flag.
-==24013==  The main thread stack size used in this run was 8388608.
-==24003== 
-==24003== HEAP SUMMARY:
-==24003==     in use at exit: 0 bytes in 0 blocks
-==24003==   total heap usage: 10 allocs, 10 frees, 1,071,746 bytes allocated
-==24003== 
-==24003== All heap blocks were freed -- no leaks are possible
-==24003== 
-==24003== For counts of detected and suppressed errors, rerun with: -v
-==24003== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==24013== 
-==24013== HEAP SUMMARY:
-==24013==     in use at exit: 17,730 bytes in 5 blocks
-==24013==   total heap usage: 26 allocs, 21 frees, 1,079,591 bytes allocated
-==24013== 
-==24013== LEAK SUMMARY:
-==24013==    definitely lost: 0 bytes in 0 blocks
-==24013==    indirectly lost: 0 bytes in 0 blocks
-==24013==      possibly lost: 0 bytes in 0 blocks
-==24013==    still reachable: 17,730 bytes in 5 blocks
-==24013==         suppressed: 0 bytes in 0 blocks
-==24013== Reachable blocks (those to which a pointer was found) are not shown.
-==24013== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==24013== 
-==24013== For counts of detected and suppressed errors, rerun with: -v
-==24013== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==24022== Conditional jump or move depends on uninitialised value(s)
-==24022==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==24022==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==24022==    by 0x403B62: run_echo (execute.c:153)
-==24022==    by 0x403D02: child_run_command (execute.c:255)
-==24022==    by 0x403EE8: create_process (execute.c:372)
-==24022==    by 0x404035: run_script (execute.c:410)
-==24022==    by 0x4013FE: main (quash.c:132)
-==24022==  Uninitialised value was created by a heap allocation
-==24022==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==24022==    by 0x405190: __initialize_memory_pool (memory_pool.c:44)
-==24022==    by 0x40530A: initialize_memory_pool (memory_pool.c:89)
-==24022==    by 0x4013DD: main (quash.c:128)
-==24022== 
-==23799== 
-==23799== HEAP SUMMARY:
-==23799==     in use at exit: 0 bytes in 0 blocks
-==23799==   total heap usage: 34 allocs, 34 frees, 1,083,479 bytes allocated
-==23799== 
-==23799== All heap blocks were freed -- no leaks are possible
-==23799== 
-==23799== For counts of detected and suppressed errors, rerun with: -v
-==23799== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==24022== 
-==24022== HEAP SUMMARY:
-==24022==     in use at exit: 0 bytes in 0 blocks
-==24022==   total heap usage: 35 allocs, 35 frees, 2,132,055 bytes allocated
-==24022== 
-==24022== All heap blocks were freed -- no leaks are possible
-==24022== 
-==24022== For counts of detected and suppressed errors, rerun with: -v
-==24022== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
+==20407== Memcheck, a memory error detector
+==20407== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20407== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==20407== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==20407== 
+==20407== Invalid free() / delete / delete[] / realloc()
+==20407==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
+==20407==    by 0x404126: run_script (execute.c:446)
+==20407==    by 0x40144E: main (quash.c:132)
+==20407==  Address 0xffeffef70 is on thread 1's stack
+==20407==  in frame #1, created by run_script (execute.c:399)
+==20407== 
+==20407== Invalid free() / delete / delete[] / realloc()
+==20407==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
+==20407==    by 0x404132: run_script (execute.c:447)
+==20407==    by 0x40144E: main (quash.c:132)
+==20407==  Address 0xffeffef40 is on thread 1's stack
+==20407==  in frame #1, created by run_script (execute.c:399)
+==20407== 
+==20601== Invalid write of size 1
+==20601==    at 0x4038E8: get_current_directory (execute.c:73)
+==20601==    by 0x403B7B: run_pwd (execute.c:217)
+==20601==    by 0x403C4B: child_run_command (execute.c:264)
+==20601==    by 0x403E25: create_process (execute.c:377)
+==20601==    by 0x404065: run_script (execute.c:422)
+==20601==    by 0x40144E: main (quash.c:132)
+==20601==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==20601== 
+==20601== 
+==20601== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==20601==  Access not within mapped region at address 0x0
+==20601==    at 0x4038E8: get_current_directory (execute.c:73)
+==20601==    by 0x403B7B: run_pwd (execute.c:217)
+==20601==    by 0x403C4B: child_run_command (execute.c:264)
+==20601==    by 0x403E25: create_process (execute.c:377)
+==20601==    by 0x404065: run_script (execute.c:422)
+==20601==    by 0x40144E: main (quash.c:132)
+==20601==  If you believe this happened as a result of a stack
+==20601==  overflow in your program's main thread (unlikely but
+==20601==  possible), you can try to increase the size of the
+==20601==  main thread stack using the --main-stacksize= flag.
+==20601==  The main thread stack size used in this run was 8388608.
+==20594== 
+==20594== HEAP SUMMARY:
+==20594==     in use at exit: 129 bytes in 3 blocks
+==20594==   total heap usage: 13 allocs, 10 frees, 1,071,875 bytes allocated
+==20594== 
+==20594== LEAK SUMMARY:
+==20594==    definitely lost: 0 bytes in 0 blocks
+==20594==    indirectly lost: 0 bytes in 0 blocks
+==20594==      possibly lost: 0 bytes in 0 blocks
+==20594==    still reachable: 129 bytes in 3 blocks
+==20594==         suppressed: 0 bytes in 0 blocks
+==20594== Reachable blocks (those to which a pointer was found) are not shown.
+==20594== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==20594== 
+==20594== For counts of detected and suppressed errors, rerun with: -v
+==20594== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==20605== Conditional jump or move depends on uninitialised value(s)
+==20605==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==20605==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==20605==    by 0x403A9F: run_echo (execute.c:158)
+==20605==    by 0x403C3F: child_run_command (execute.c:260)
+==20605==    by 0x403E25: create_process (execute.c:377)
+==20605==    by 0x404065: run_script (execute.c:422)
+==20605==    by 0x40144E: main (quash.c:132)
+==20605==  Uninitialised value was created by a heap allocation
+==20605==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20605==    by 0x4051FC: __initialize_memory_pool (memory_pool.c:44)
+==20605==    by 0x405376: initialize_memory_pool (memory_pool.c:89)
+==20605==    by 0x40142D: main (quash.c:128)
+==20605== 
+==20601== 
+==20601== HEAP SUMMARY:
+==20601==     in use at exit: 17,980 bytes in 12 blocks
+==20601==   total heap usage: 35 allocs, 27 frees, 1,079,849 bytes allocated
+==20601== 
+==20601== 73 bytes in 2 blocks are definitely lost in loss record 6 of 10
+==20601==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20601==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
+==20601==    by 0x401373: get_command_string (quash.c:88)
+==20601==    by 0x40401A: run_script (execute.c:419)
+==20601==    by 0x40144E: main (quash.c:132)
+==20601== 
+==20601== 112 bytes in 2 blocks are definitely lost in loss record 7 of 10
+==20601==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20601==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
+==20601==    by 0x403F45: run_script (execute.c:412)
+==20601==    by 0x40144E: main (quash.c:132)
+==20601== 
+==20601== LEAK SUMMARY:
+==20601==    definitely lost: 185 bytes in 4 blocks
+==20601==    indirectly lost: 0 bytes in 0 blocks
+==20601==      possibly lost: 0 bytes in 0 blocks
+==20601==    still reachable: 17,795 bytes in 8 blocks
+==20601==         suppressed: 0 bytes in 0 blocks
+==20601== Reachable blocks (those to which a pointer was found) are not shown.
+==20601== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==20601== 
+==20601== For counts of detected and suppressed errors, rerun with: -v
+==20601== ERROR SUMMARY: 7 errors from 5 contexts (suppressed: 0 from 0)
+==20407== 
+==20407== HEAP SUMMARY:
+==20407==     in use at exit: 373 bytes in 8 blocks
+==20407==   total heap usage: 46 allocs, 46 frees, 1,083,868 bytes allocated
+==20407== 
+==20407== 78 bytes in 3 blocks are definitely lost in loss record 2 of 3
+==20407==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20407==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
+==20407==    by 0x401373: get_command_string (quash.c:88)
+==20407==    by 0x40401A: run_script (execute.c:419)
+==20407==    by 0x40144E: main (quash.c:132)
+==20407== 
+==20407== 224 bytes in 4 blocks are definitely lost in loss record 3 of 3
+==20407==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20407==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
+==20407==    by 0x403F45: run_script (execute.c:412)
+==20407==    by 0x40144E: main (quash.c:132)
+==20407== 
+==20407== LEAK SUMMARY:
+==20407==    definitely lost: 302 bytes in 7 blocks
+==20407==    indirectly lost: 0 bytes in 0 blocks
+==20407==      possibly lost: 0 bytes in 0 blocks
+==20407==    still reachable: 71 bytes in 1 blocks
+==20407==         suppressed: 0 bytes in 0 blocks
+==20407== Reachable blocks (those to which a pointer was found) are not shown.
+==20407== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==20407== 
+==20407== For counts of detected and suppressed errors, rerun with: -v
+==20407== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
+==20605== 
+==20605== HEAP SUMMARY:
+==20605==     in use at exit: 377 bytes in 9 blocks
+==20605==   total heap usage: 47 allocs, 44 frees, 2,132,444 bytes allocated
+==20605== 
+==20605== 78 bytes in 3 blocks are definitely lost in loss record 4 of 5
+==20605==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20605==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
+==20605==    by 0x401373: get_command_string (quash.c:88)
+==20605==    by 0x40401A: run_script (execute.c:419)
+==20605==    by 0x40144E: main (quash.c:132)
+==20605== 
+==20605== 168 bytes in 3 blocks are definitely lost in loss record 5 of 5
+==20605==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==20605==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
+==20605==    by 0x403F45: run_script (execute.c:412)
+==20605==    by 0x40144E: main (quash.c:132)
+==20605== 
+==20605== LEAK SUMMARY:
+==20605==    definitely lost: 246 bytes in 6 blocks
+==20605==    indirectly lost: 0 bytes in 0 blocks
+==20605==      possibly lost: 0 bytes in 0 blocks
+==20605==    still reachable: 131 bytes in 3 blocks
+==20605==         suppressed: 0 bytes in 0 blocks
+==20605== Reachable blocks (those to which a pointer was found) are not shown.
+==20605== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==20605== 
+==20605== For counts of detected and suppressed errors, rerun with: -v
+==20605== ERROR SUMMARY: 14 errors from 5 contexts (suppressed: 0 from 0)

@@ -37,8 +37,8 @@ typedef struct process_struct{
 
 //Set up our queues as needed
 
-IMPLEMENT_DEQUE_STRUCT(pid_queue, process_t);
-IMPLEMENT_DEQUE(pid_queue, process_t);
+IMPLEMENT_DEQUE_STRUCT(pid_queue, pid_t);
+IMPLEMENT_DEQUE(pid_queue, pid_t);
 
 //Set up job structure
 
@@ -47,7 +47,11 @@ typedef struct job_struct{
 	pid_queue pids;
 	char *cmd;
 } job_t;
+void pid_wait(pid_queue pid){
+	int status;
+	waitpid(pid, &status, 0);
 
+}	
 job_t curr_job;
 
 IMPLEMENT_DEQUE_STRUCT(job_queue, job_t);
@@ -382,7 +386,7 @@ void create_process(CommandHolder holder) {
 	
 	next_pipe = (next_pipe + 1) % 2;
 	prev_pipe = (prev_pipe + 1) % 2;
-	//push_front_pid_queue(&process_queue, my_process);
+	//push_back_pid_queue(&curr_job.pids, pid);
 	parent_run_command(holder.cmd);
   }
   
@@ -398,7 +402,7 @@ void run_script(CommandHolder* holders) {
 
   check_jobs_bg_status();
 
-  if (get_command_holder_type(holders[0]) == EXIT &&
+  if (get_command_holder_type(holders[0]) == EXIT &&                                   
       get_command_holder_type(holders[1]) == EOC) {
     end_main_loop();
     return;
@@ -412,7 +416,7 @@ void run_script(CommandHolder* holders) {
 
   curr_job.job_id = length_job_queue(&jobs);
   curr_job.pids = pids;
-  //curr_job.cmd = get_command_type(holders);
+  curr_job.cmd = get_command_string();
   // Run all commands in the `holder` array
   for (int i = 0; (type = get_command_holder_type(holders[i])) != EOC; ++i)
     create_process(holders[i]);
@@ -422,15 +426,23 @@ void run_script(CommandHolder* holders) {
     // Not a background Job
     // TODO: Wait for all processes under the job to complete
     //keep track of pid and wait to finish
-    //waitpid(queue.getpid(), &queue.getwstatus, UNTRACED | CONTINUED)
+
+    apply_pid_queue(&curr_job.pids, pid_wait);
+    destroy_pid_queue(&curr_job.pids);
 
   }
   else {
     // A background job.
     // TODO: Push the new job to the job queue
     IMPLEMENT_ME();
-
+	//push_back_job_queue(&jobs, curr_job);
+	char* cmd =curr_job.cmd;
+	int job_id;
+	//pid_t pid = peek_front_pid_queue(&curr_job.pids);
     // TODO: Once jobs are implemented, uncomment and fill the following line
-    // print_job_bg_start(job_id, pid, cmd);
+    	//print_job_bg_start(job_id, pid, cmd);
   }
+
+  free(&jobs);
+  free(&pids);
 }

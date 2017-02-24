@@ -1,6 +1,5 @@
-4d3
-< vgcore.24013
-6,12c5
+1,8d0
+< /home/bsauvage/EECS678/Quash/quash/test-cases/t2_cd/sandbox/dir3
 < (null)
 < (null)
 < (null)
@@ -8,5 +7,8 @@
 < (null)
 < (null)
 < (null)
+12c4,5
+< vgcore.20601
 ---
+> /home/bsauvage/EECS678/Quash/quash/test-cases/t2_cd/sandbox/dir3
 > /home/bsauvage/EECS678/Quash/quash/test-cases/t2_cd/sandbox/dir3
