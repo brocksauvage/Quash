@@ -57,6 +57,8 @@ job_t curr_job;
 IMPLEMENT_DEQUE_STRUCT(job_queue, job_t);
 IMPLEMENT_DEQUE(job_queue, job_t);
 
+job_queue jobs;
+pid_queue pids;
 /***************************************************************************
  * Interface Functions
  ***************************************************************************/
@@ -96,10 +98,36 @@ void check_jobs_bg_status() {
   // TODO: Check on the statuses of all processes belonging to all background
   // jobs. This function should remove jobs from the jobs queue once all
   // processes belonging to a job have completed.
-  IMPLEMENT_ME();
 
+	for(int i =0; i < length_job_queue(&jobs); i++)
+	{
+
+		job_t temp_job = pop_front_job_queue(&jobs);
+		bool finished = true;
+		for(int j = 0; j < length_pid_queue(&temp_job.pids); j++)
+		{
+			pid_t temp_pids = pop_front_pid_queue(&pids);
+			int status;
+			if(waitpid(pids, &status, WNOHANG) == 0)
+			{
+				finished = false;
+			}
+			push_back_pid_queue(&temp_job.pids, temp_pids);
+			if(!finished)
+			{
+				push_back_job_queue(&jobs, temp_job);
+			}
+			else
+			{
+			  print_job_bg_complete(temp_job.job_id, peek_front_pid_queue(&temp_job.pids), temp_job.cmd);
+			}
+			
+		}
+	
+	}
+		
   // TODO: Once jobs are implemented, uncomment and fill the following line
-  // print_job_bg_complete(job_id, pid, cmd);
+
 }
 
 // Prints the job id number, the process id of the first process belonging to
@@ -154,9 +182,14 @@ void run_echo(EchoCommand cmd) {
 
   // TODO: Implement echo
   // Being Worked on By: Brock Sauvage
-  for(int i = 0; i < sizeof(str); i++)
-	fprintf(stdout, "%s\n", str[i]);
-
+  //for(int i = 0; i < sizeof(str); i++)
+	int i = 0;
+	while(*(str+i) != NULL)
+	{
+		printf("%s ", *(str+i));
+		i++;
+	}
+	printf("\n");
   // Flush the buffer before returning
   fflush(stdout);
 }
@@ -214,7 +247,8 @@ void run_kill(KillCommand cmd) {
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
-  fprintf(stdout, "%s\n", get_current_directory(0));
+  bool isFree = 0;
+  fprintf(stdout, "%s\n", get_current_directory(&isFree));
 
   // Flush the buffer before returning
   fflush(stdout);
@@ -224,6 +258,9 @@ void run_pwd() {
 void run_jobs() {
   // TODO: Print background jobs
   IMPLEMENT_ME();
+  for(int i = 0; i < length_job_queue(&jobs); i++)
+	{
+	}
 
   // Flush the buffer before returning
   fflush(stdout);
@@ -386,7 +423,7 @@ void create_process(CommandHolder holder) {
 	
 	next_pipe = (next_pipe + 1) % 2;
 	prev_pipe = (prev_pipe + 1) % 2;
-	//push_back_pid_queue(&curr_job.pids, pid);
+	push_back_pid_queue(&curr_job.pids, pid);
 	parent_run_command(holder.cmd);
   }
   
@@ -400,6 +437,10 @@ void run_script(CommandHolder* holders) {
   if (holders == NULL)
     return;
 
+
+  jobs = new_job_queue(1);
+  CommandType type;
+
   check_jobs_bg_status();
 
   if (get_command_holder_type(holders[0]) == EXIT &&                                   
@@ -408,15 +449,10 @@ void run_script(CommandHolder* holders) {
     return;
   }
 
-  job_queue jobs;
-  jobs = new_job_queue(1);
-  pid_queue pids;
-  pids = new_pid_queue(1); 
-  CommandType type;
-
   curr_job.job_id = length_job_queue(&jobs);
-  curr_job.pids = pids;
+  curr_job.pids = new_pid_queue(1);
   curr_job.cmd = get_command_string();
+
   // Run all commands in the `holder` array
   for (int i = 0; (type = get_command_holder_type(holders[i])) != EOC; ++i)
     create_process(holders[i]);
@@ -435,14 +471,14 @@ void run_script(CommandHolder* holders) {
     // A background job.
     // TODO: Push the new job to the job queue
     IMPLEMENT_ME();
-	//push_back_job_queue(&jobs, curr_job);
-	char* cmd =curr_job.cmd;
-	int job_id;
-	//pid_t pid = peek_front_pid_queue(&curr_job.pids);
+		push_back_job_queue(&jobs, curr_job);
+		char* cmd =curr_job.cmd;
+		int job_id = curr_job.job_id;
+		pid_t pid = peek_front_pid_queue(&curr_job.pids);
     // TODO: Once jobs are implemented, uncomment and fill the following line
-    	//print_job_bg_start(job_id, pid, cmd);
+    print_job_bg_start(job_id, pid, cmd);
   }
 
-  free(&jobs);
-  free(&pids);
+  //free(&jobs);
+  //free(&pids);
 }

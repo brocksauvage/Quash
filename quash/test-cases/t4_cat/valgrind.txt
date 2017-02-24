@@ -1,93 +1,79 @@
-==20586== Memcheck, a memory error detector
-==20586== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==20586== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==20586== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==20586== 
-==20586== Invalid free() / delete / delete[] / realloc()
-==20586==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
-==20586==    by 0x404126: run_script (execute.c:446)
-==20586==    by 0x40144E: main (quash.c:132)
-==20586==  Address 0xffeffef70 is on thread 1's stack
-==20586==  in frame #1, created by run_script (execute.c:399)
-==20586== 
-==20586== Invalid free() / delete / delete[] / realloc()
-==20586==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
-==20586==    by 0x404132: run_script (execute.c:447)
-==20586==    by 0x40144E: main (quash.c:132)
-==20586==  Address 0xffeffef40 is on thread 1's stack
-==20586==  in frame #1, created by run_script (execute.c:399)
-==20586== 
-==20782== 
-==20782== HEAP SUMMARY:
-==20782==     in use at exit: 94 bytes in 3 blocks
-==20782==   total heap usage: 10 allocs, 7 frees, 1,066,480 bytes allocated
-==20782== 
-==20782== LEAK SUMMARY:
-==20782==    definitely lost: 0 bytes in 0 blocks
-==20782==    indirectly lost: 0 bytes in 0 blocks
-==20782==      possibly lost: 0 bytes in 0 blocks
-==20782==    still reachable: 94 bytes in 3 blocks
-==20782==         suppressed: 0 bytes in 0 blocks
-==20782== Reachable blocks (those to which a pointer was found) are not shown.
-==20782== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==20782== 
-==20782== For counts of detected and suppressed errors, rerun with: -v
-==20782== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==20798== 
-==20798== HEAP SUMMARY:
-==20798==     in use at exit: 178 bytes in 5 blocks
-==20798==   total heap usage: 19 allocs, 16 frees, 1,069,002 bytes allocated
-==20798== 
-==20798== 34 bytes in 1 blocks are definitely lost in loss record 3 of 5
-==20798==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==20798==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
-==20798==    by 0x401373: get_command_string (quash.c:88)
-==20798==    by 0x40401A: run_script (execute.c:419)
-==20798==    by 0x40144E: main (quash.c:132)
-==20798== 
-==20798== 56 bytes in 1 blocks are definitely lost in loss record 5 of 5
-==20798==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==20798==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
-==20798==    by 0x403F45: run_script (execute.c:412)
-==20798==    by 0x40144E: main (quash.c:132)
-==20798== 
-==20798== LEAK SUMMARY:
-==20798==    definitely lost: 90 bytes in 2 blocks
-==20798==    indirectly lost: 0 bytes in 0 blocks
-==20798==      possibly lost: 0 bytes in 0 blocks
-==20798==    still reachable: 88 bytes in 3 blocks
-==20798==         suppressed: 0 bytes in 0 blocks
-==20798== Reachable blocks (those to which a pointer was found) are not shown.
-==20798== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==20798== 
-==20798== For counts of detected and suppressed errors, rerun with: -v
-==20798== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
-==20586== 
-==20586== HEAP SUMMARY:
-==20586==     in use at exit: 418 bytes in 10 blocks
-==20586==   total heap usage: 49 allocs, 49 frees, 1,076,990 bytes allocated
-==20586== 
-==20586== 125 bytes in 4 blocks are definitely lost in loss record 2 of 3
-==20586==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==20586==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
-==20586==    by 0x401373: get_command_string (quash.c:88)
-==20586==    by 0x40401A: run_script (execute.c:419)
-==20586==    by 0x40144E: main (quash.c:132)
-==20586== 
-==20586== 280 bytes in 5 blocks are definitely lost in loss record 3 of 3
-==20586==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==20586==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
-==20586==    by 0x403F45: run_script (execute.c:412)
-==20586==    by 0x40144E: main (quash.c:132)
-==20586== 
-==20586== LEAK SUMMARY:
-==20586==    definitely lost: 405 bytes in 9 blocks
-==20586==    indirectly lost: 0 bytes in 0 blocks
-==20586==      possibly lost: 0 bytes in 0 blocks
-==20586==    still reachable: 13 bytes in 1 blocks
-==20586==         suppressed: 0 bytes in 0 blocks
-==20586== Reachable blocks (those to which a pointer was found) are not shown.
-==20586== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==20586== 
-==20586== For counts of detected and suppressed errors, rerun with: -v
-==20586== ERROR SUMMARY: 12 errors from 4 contexts (suppressed: 0 from 0)
+==4105== Memcheck, a memory error detector
+==4105== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==4105== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==4105== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==4105== 
+==4321== 
+==4321== HEAP SUMMARY:
+==4321==     in use at exit: 94 bytes in 3 blocks
+==4321==   total heap usage: 10 allocs, 7 frees, 1,066,480 bytes allocated
+==4321== 
+==4321== LEAK SUMMARY:
+==4321==    definitely lost: 0 bytes in 0 blocks
+==4321==    indirectly lost: 0 bytes in 0 blocks
+==4321==      possibly lost: 0 bytes in 0 blocks
+==4321==    still reachable: 94 bytes in 3 blocks
+==4321==         suppressed: 0 bytes in 0 blocks
+==4321== Reachable blocks (those to which a pointer was found) are not shown.
+==4321== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4321== 
+==4321== For counts of detected and suppressed errors, rerun with: -v
+==4321== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4348== 
+==4348== HEAP SUMMARY:
+==4348==     in use at exit: 178 bytes in 5 blocks
+==4348==   total heap usage: 20 allocs, 15 frees, 1,069,010 bytes allocated
+==4348== 
+==4348== 34 bytes in 1 blocks are definitely lost in loss record 3 of 5
+==4348==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==4348==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
+==4348==    by 0x4013B3: get_command_string (quash.c:88)
+==4348==    by 0x404144: run_script (execute.c:451)
+==4348==    by 0x40148E: main (quash.c:132)
+==4348== 
+==4348== 56 bytes in 1 blocks are definitely lost in loss record 5 of 5
+==4348==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==4348==    by 0x402708: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
+==4348==    by 0x40404B: run_script (execute.c:438)
+==4348==    by 0x40148E: main (quash.c:132)
+==4348== 
+==4348== LEAK SUMMARY:
+==4348==    definitely lost: 90 bytes in 2 blocks
+==4348==    indirectly lost: 0 bytes in 0 blocks
+==4348==      possibly lost: 0 bytes in 0 blocks
+==4348==    still reachable: 88 bytes in 3 blocks
+==4348==         suppressed: 0 bytes in 0 blocks
+==4348== Reachable blocks (those to which a pointer was found) are not shown.
+==4348== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4348== 
+==4348== For counts of detected and suppressed errors, rerun with: -v
+==4348== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==4105== 
+==4105== HEAP SUMMARY:
+==4105==     in use at exit: 418 bytes in 10 blocks
+==4105==   total heap usage: 54 allocs, 44 frees, 1,077,030 bytes allocated
+==4105== 
+==4105== 125 bytes in 4 blocks are definitely lost in loss record 3 of 4
+==4105==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==4105==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
+==4105==    by 0x4013B3: get_command_string (quash.c:88)
+==4105==    by 0x404144: run_script (execute.c:451)
+==4105==    by 0x40148E: main (quash.c:132)
+==4105== 
+==4105== 224 bytes in 4 blocks are definitely lost in loss record 4 of 4
+==4105==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==4105==    by 0x402708: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
+==4105==    by 0x40404B: run_script (execute.c:438)
+==4105==    by 0x40148E: main (quash.c:132)
+==4105== 
+==4105== LEAK SUMMARY:
+==4105==    definitely lost: 349 bytes in 8 blocks
+==4105==    indirectly lost: 0 bytes in 0 blocks
+==4105==      possibly lost: 0 bytes in 0 blocks
+==4105==    still reachable: 69 bytes in 2 blocks
+==4105==         suppressed: 0 bytes in 0 blocks
+==4105== Reachable blocks (those to which a pointer was found) are not shown.
+==4105== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4105== 
+==4105== For counts of detected and suppressed errors, rerun with: -v
+==4105== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

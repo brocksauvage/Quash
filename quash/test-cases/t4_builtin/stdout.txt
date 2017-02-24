@@ -1,4 +1,3 @@
-hello
-(null)
-(null)
-(null)
+/home/bsauvage/EECS678/Quash/quash/test-cases/t4_builtin/sandbox
+/home/bsauvage/EECS678/Quash/quash/test-cases/t4_builtin/sandbox
+hello 

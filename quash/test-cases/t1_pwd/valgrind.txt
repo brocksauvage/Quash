@@ -1,80 +1,21 @@
-==20314== Memcheck, a memory error detector
-==20314== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==20314== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==20314== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==20314== 
-==20314== Invalid free() / delete / delete[] / realloc()
-==20314==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
-==20314==    by 0x404126: run_script (execute.c:446)
-==20314==    by 0x40144E: main (quash.c:132)
-==20314==  Address 0xffeffef70 is on thread 1's stack
-==20314==  in frame #1, created by run_script (execute.c:399)
-==20314== 
-==20314== Invalid free() / delete / delete[] / realloc()
-==20314==    at 0x4C2CD5A: free (vg_replace_malloc.c:530)
-==20314==    by 0x404132: run_script (execute.c:447)
-==20314==    by 0x40144E: main (quash.c:132)
-==20314==  Address 0xffeffef40 is on thread 1's stack
-==20314==  in frame #1, created by run_script (execute.c:399)
-==20314== 
-==20602== Invalid write of size 1
-==20602==    at 0x4038E8: get_current_directory (execute.c:73)
-==20602==    by 0x403B7B: run_pwd (execute.c:217)
-==20602==    by 0x403C4B: child_run_command (execute.c:264)
-==20602==    by 0x403E25: create_process (execute.c:377)
-==20602==    by 0x404065: run_script (execute.c:422)
-==20602==    by 0x40144E: main (quash.c:132)
-==20602==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==20602== 
-==20602== 
-==20602== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==20602==  Access not within mapped region at address 0x0
-==20602==    at 0x4038E8: get_current_directory (execute.c:73)
-==20602==    by 0x403B7B: run_pwd (execute.c:217)
-==20602==    by 0x403C4B: child_run_command (execute.c:264)
-==20602==    by 0x403E25: create_process (execute.c:377)
-==20602==    by 0x404065: run_script (execute.c:422)
-==20602==    by 0x40144E: main (quash.c:132)
-==20602==  If you believe this happened as a result of a stack
-==20602==  overflow in your program's main thread (unlikely but
-==20602==  possible), you can try to increase the size of the
-==20602==  main thread stack using the --main-stacksize= flag.
-==20602==  The main thread stack size used in this run was 8388608.
-==20314== 
-==20314== HEAP SUMMARY:
-==20314==     in use at exit: 61 bytes in 2 blocks
-==20314==   total heap usage: 12 allocs, 12 frees, 1,067,715 bytes allocated
-==20314== 
-==20314== 56 bytes in 1 blocks are definitely lost in loss record 2 of 2
-==20314==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==20314==    by 0x4026C8: new_job_queue (in /home/bsauvage/EECS678/Quash/quash/quash)
-==20314==    by 0x403F45: run_script (execute.c:412)
-==20314==    by 0x40144E: main (quash.c:132)
-==20314== 
-==20314== LEAK SUMMARY:
-==20314==    definitely lost: 56 bytes in 1 blocks
-==20314==    indirectly lost: 0 bytes in 0 blocks
-==20314==      possibly lost: 0 bytes in 0 blocks
-==20314==    still reachable: 5 bytes in 1 blocks
-==20314==         suppressed: 0 bytes in 0 blocks
-==20314== Reachable blocks (those to which a pointer was found) are not shown.
-==20314== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==20314== 
-==20314== For counts of detected and suppressed errors, rerun with: -v
-==20314== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
-==20602== 
-==20602== HEAP SUMMARY:
-==20602==     in use at exit: 17,795 bytes in 8 blocks
-==20602==   total heap usage: 12 allocs, 4 frees, 1,067,715 bytes allocated
-==20602== 
-==20602== LEAK SUMMARY:
-==20602==    definitely lost: 0 bytes in 0 blocks
-==20602==    indirectly lost: 0 bytes in 0 blocks
-==20602==      possibly lost: 0 bytes in 0 blocks
-==20602==    still reachable: 17,795 bytes in 8 blocks
-==20602==         suppressed: 0 bytes in 0 blocks
-==20602== Reachable blocks (those to which a pointer was found) are not shown.
-==20602== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==20602== 
-==20602== For counts of detected and suppressed errors, rerun with: -v
-==20602== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==3844== Memcheck, a memory error detector
+==3844== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==3844== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==3844== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==3844== 
+==3844== 
+==3844== HEAP SUMMARY:
+==3844==     in use at exit: 61 bytes in 2 blocks
+==3844==   total heap usage: 13 allocs, 11 frees, 1,067,723 bytes allocated
+==3844== 
+==3844== LEAK SUMMARY:
+==3844==    definitely lost: 0 bytes in 0 blocks
+==3844==    indirectly lost: 0 bytes in 0 blocks
+==3844==      possibly lost: 0 bytes in 0 blocks
+==3844==    still reachable: 61 bytes in 2 blocks
+==3844==         suppressed: 0 bytes in 0 blocks
+==3844== Reachable blocks (those to which a pointer was found) are not shown.
+==3844== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3844== 
+==3844== For counts of detected and suppressed errors, rerun with: -v
+==3844== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

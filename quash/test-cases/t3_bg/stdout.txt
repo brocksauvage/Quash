@@ -1,11 +1,6 @@
-world
-(null)
-(null)
-(null)
-(null)
-(null)
-(null)
-(null)
+Background job started: [0]	#PID#	delayed_echo hello 2 & 
+Background job started: [0]	#PID#	echo world & 
+world 
 dir1
 dir2
 dir3

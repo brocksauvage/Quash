@@ -1,8 +1,2 @@
-This
-should
-be
-the
-last
-line
-(null)
-(null)
+Background job started: [0]	#PID#	delayed_echo Hello World! 1 & 
+This should be the last line 

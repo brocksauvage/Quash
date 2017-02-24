@@ -1,13 +1,5 @@
-1,8c1,3
-< This
-< should
-< be
-< the
-< last
-< line
-< (null)
-< (null)
+1c1,2
+< Background job started: [0]	#PID#	delayed_echo Hello World! 1 & 
 ---
 > Background job started: [1]	#PID#	delayed_echo Hello World! 1 & 
 > Completed: 	[1]	#PID#	delayed_echo Hello World! 1 & 
-> This should be the last line

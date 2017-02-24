@@ -1,2 +1,0 @@
-0a1
-> /home/bsauvage/EECS678/Quash/quash/test-cases/t1_pwd/sandbox
