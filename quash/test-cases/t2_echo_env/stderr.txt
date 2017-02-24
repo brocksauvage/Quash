@@ -1,38 +1,38 @@
-==7986== Memcheck, a memory error detector
-==7986== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==7986== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==7986== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==7986== 
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
-==8268== Conditional jump or move depends on uninitialised value(s)
-==8268==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==8268==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8268==    by 0x402970: run_echo (execute.c:143)
-==8268==    by 0x402B10: child_run_command (execute.c:245)
-==8268==    by 0x402CF6: create_process (execute.c:362)
-==8268==    by 0x402E43: run_script (execute.c:400)
-==8268==    by 0x4013FE: main (quash.c:132)
-==8268==  Uninitialised value was created by a heap allocation
-==8268==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==8268==    by 0x403F9C: __initialize_memory_pool (memory_pool.c:44)
-==8268==    by 0x404116: initialize_memory_pool (memory_pool.c:89)
-==8268==    by 0x4013DD: main (quash.c:128)
-==8268== 
-==7986== 
-==7986== HEAP SUMMARY:
-==7986==     in use at exit: 0 bytes in 0 blocks
-==7986==   total heap usage: 10 allocs, 10 frees, 1,067,666 bytes allocated
-==7986== 
-==7986== All heap blocks were freed -- no leaks are possible
-==7986== 
-==7986== For counts of detected and suppressed errors, rerun with: -v
-==7986== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==8268== 
-==8268== HEAP SUMMARY:
-==8268==     in use at exit: 0 bytes in 0 blocks
-==8268==   total heap usage: 11 allocs, 11 frees, 2,116,242 bytes allocated
-==8268== 
-==8268== All heap blocks were freed -- no leaks are possible
-==8268== 
-==8268== For counts of detected and suppressed errors, rerun with: -v
-==8268== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
+==23870== Memcheck, a memory error detector
+==23870== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==23870== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==23870== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==23870== 
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
+==24049== Conditional jump or move depends on uninitialised value(s)
+==24049==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==24049==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24049==    by 0x403B62: run_echo (execute.c:153)
+==24049==    by 0x403D02: child_run_command (execute.c:255)
+==24049==    by 0x403EE8: create_process (execute.c:372)
+==24049==    by 0x404035: run_script (execute.c:410)
+==24049==    by 0x4013FE: main (quash.c:132)
+==24049==  Uninitialised value was created by a heap allocation
+==24049==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==24049==    by 0x405190: __initialize_memory_pool (memory_pool.c:44)
+==24049==    by 0x40530A: initialize_memory_pool (memory_pool.c:89)
+==24049==    by 0x4013DD: main (quash.c:128)
+==24049== 
+==23870== 
+==23870== HEAP SUMMARY:
+==23870==     in use at exit: 0 bytes in 0 blocks
+==23870==   total heap usage: 10 allocs, 10 frees, 1,067,666 bytes allocated
+==23870== 
+==23870== All heap blocks were freed -- no leaks are possible
+==23870== 
+==23870== For counts of detected and suppressed errors, rerun with: -v
+==23870== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==24049== 
+==24049== HEAP SUMMARY:
+==24049==     in use at exit: 0 bytes in 0 blocks
+==24049==   total heap usage: 11 allocs, 11 frees, 2,116,242 bytes allocated
+==24049== 
+==24049== All heap blocks were freed -- no leaks are possible
+==24049== 
+==24049== For counts of detected and suppressed errors, rerun with: -v
+==24049== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)

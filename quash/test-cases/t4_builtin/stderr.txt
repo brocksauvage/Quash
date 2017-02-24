@@ -1,216 +1,216 @@
-==8171== Memcheck, a memory error detector
-==8171== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==8171== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==8171== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==8171== 
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
-==8402== Invalid write of size 1
-==8402==    at 0x4027B9: get_current_directory (execute.c:58)
-==8402==    by 0x402A4C: run_pwd (execute.c:202)
-==8402==    by 0x402B1C: child_run_command (execute.c:249)
-==8402==    by 0x402CF6: create_process (execute.c:362)
-==8402==    by 0x402E43: run_script (execute.c:400)
-==8402==    by 0x4013FE: main (quash.c:132)
-==8402==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==8402== 
-==8402== 
-==8402== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==8402==  Access not within mapped region at address 0x0
-==8402==    at 0x4027B9: get_current_directory (execute.c:58)
-==8402==    by 0x402A4C: run_pwd (execute.c:202)
-==8402==    by 0x402B1C: child_run_command (execute.c:249)
-==8402==    by 0x402CF6: create_process (execute.c:362)
-==8402==    by 0x402E43: run_script (execute.c:400)
-==8402==    by 0x4013FE: main (quash.c:132)
-==8402==  If you believe this happened as a result of a stack
-==8402==  overflow in your program's main thread (unlikely but
-==8402==  possible), you can try to increase the size of the
-==8402==  main thread stack using the --main-stacksize= flag.
-==8402==  The main thread stack size used in this run was 8388608.
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
-==8431== Invalid write of size 1
-==8431==    at 0x4027B9: get_current_directory (execute.c:58)
-==8431==    by 0x402A4C: run_pwd (execute.c:202)
-==8431==    by 0x402B1C: child_run_command (execute.c:249)
-==8431==    by 0x402CF6: create_process (execute.c:362)
-==8431==    by 0x402E43: run_script (execute.c:400)
-==8431==    by 0x4013FE: main (quash.c:132)
-==8431==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==8431== 
-==8431== 
-==8431== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==8431==  Access not within mapped region at address 0x0
-==8431==    at 0x4027B9: get_current_directory (execute.c:58)
-==8431==    by 0x402A4C: run_pwd (execute.c:202)
-==8431==    by 0x402B1C: child_run_command (execute.c:249)
-==8431==    by 0x402CF6: create_process (execute.c:362)
-==8431==    by 0x402E43: run_script (execute.c:400)
-==8431==    by 0x4013FE: main (quash.c:132)
-==8431==  If you believe this happened as a result of a stack
-==8431==  overflow in your program's main thread (unlikely but
-==8431==  possible), you can try to increase the size of the
-==8431==  main thread stack using the --main-stacksize= flag.
-==8431==  The main thread stack size used in this run was 8388608.
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
+==23988== Memcheck, a memory error detector
+==23988== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==23988== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==23988== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==23988== 
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
+==24173== Invalid write of size 1
+==24173==    at 0x4039AB: get_current_directory (execute.c:68)
+==24173==    by 0x403C3E: run_pwd (execute.c:212)
+==24173==    by 0x403D0E: child_run_command (execute.c:259)
+==24173==    by 0x403EE8: create_process (execute.c:372)
+==24173==    by 0x404035: run_script (execute.c:410)
+==24173==    by 0x4013FE: main (quash.c:132)
+==24173==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==24173== 
+==24173== 
+==24173== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==24173==  Access not within mapped region at address 0x0
+==24173==    at 0x4039AB: get_current_directory (execute.c:68)
+==24173==    by 0x403C3E: run_pwd (execute.c:212)
+==24173==    by 0x403D0E: child_run_command (execute.c:259)
+==24173==    by 0x403EE8: create_process (execute.c:372)
+==24173==    by 0x404035: run_script (execute.c:410)
+==24173==    by 0x4013FE: main (quash.c:132)
+==24173==  If you believe this happened as a result of a stack
+==24173==  overflow in your program's main thread (unlikely but
+==24173==  possible), you can try to increase the size of the
+==24173==  main thread stack using the --main-stacksize= flag.
+==24173==  The main thread stack size used in this run was 8388608.
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
+==24179== Invalid write of size 1
+==24179==    at 0x4039AB: get_current_directory (execute.c:68)
+==24179==    by 0x403C3E: run_pwd (execute.c:212)
+==24179==    by 0x403D0E: child_run_command (execute.c:259)
+==24179==    by 0x403EE8: create_process (execute.c:372)
+==24179==    by 0x404035: run_script (execute.c:410)
+==24179==    by 0x4013FE: main (quash.c:132)
+==24179==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==24179== 
+==24179== 
+==24179== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==24179==  Access not within mapped region at address 0x0
+==24179==    at 0x4039AB: get_current_directory (execute.c:68)
+==24179==    by 0x403C3E: run_pwd (execute.c:212)
+==24179==    by 0x403D0E: child_run_command (execute.c:259)
+==24179==    by 0x403EE8: create_process (execute.c:372)
+==24179==    by 0x404035: run_script (execute.c:410)
+==24179==    by 0x4013FE: main (quash.c:132)
+==24179==  If you believe this happened as a result of a stack
+==24179==  overflow in your program's main thread (unlikely but
+==24179==  possible), you can try to increase the size of the
+==24179==  main thread stack using the --main-stacksize= flag.
+==24179==  The main thread stack size used in this run was 8388608.
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
 cat: pwd.txt: No such file or directory
-==8441== Conditional jump or move depends on uninitialised value(s)
-==8441==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==8441==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8441==    by 0x402970: run_echo (execute.c:143)
-==8441==    by 0x402B10: child_run_command (execute.c:245)
-==8441==    by 0x402CF6: create_process (execute.c:362)
-==8441==    by 0x402E43: run_script (execute.c:400)
-==8441==    by 0x4013FE: main (quash.c:132)
-==8441==  Uninitialised value was created by a heap allocation
-==8441==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==8441==    by 0x403F9C: __initialize_memory_pool (memory_pool.c:44)
-==8441==    by 0x404116: initialize_memory_pool (memory_pool.c:89)
-==8441==    by 0x4013DD: main (quash.c:128)
-==8441== 
-==8441== Invalid read of size 1
-==8441==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==8441==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8441==    by 0x402970: run_echo (execute.c:143)
-==8441==    by 0x402B10: child_run_command (execute.c:245)
-==8441==    by 0x402CF6: create_process (execute.c:362)
-==8441==    by 0x402E43: run_script (execute.c:400)
-==8441==    by 0x4013FE: main (quash.c:132)
-==8441==  Address 0x7478742e6f686365 is not stack'd, malloc'd or (recently) free'd
-==8441== 
-==8441== 
-==8441== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==8441==  General Protection Fault
-==8441==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==8441==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8441==    by 0x402970: run_echo (execute.c:143)
-==8441==    by 0x402B10: child_run_command (execute.c:245)
-==8441==    by 0x402CF6: create_process (execute.c:362)
-==8441==    by 0x402E43: run_script (execute.c:400)
-==8441==    by 0x4013FE: main (quash.c:132)
-==8436== Conditional jump or move depends on uninitialised value(s)
-==8436==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
-==8436==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8436==    by 0x402970: run_echo (execute.c:143)
-==8436==    by 0x402B10: child_run_command (execute.c:245)
-==8436==    by 0x402CF6: create_process (execute.c:362)
-==8436==    by 0x402E43: run_script (execute.c:400)
-==8436==    by 0x4013FE: main (quash.c:132)
-==8436==  Uninitialised value was created by a heap allocation
-==8436==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==8436==    by 0x403F9C: __initialize_memory_pool (memory_pool.c:44)
-==8436==    by 0x404116: initialize_memory_pool (memory_pool.c:89)
-==8436==    by 0x4013DD: main (quash.c:128)
-==8436== 
-==8436== Invalid read of size 1
-==8436==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==8436==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8436==    by 0x402970: run_echo (execute.c:143)
-==8436==    by 0x402B10: child_run_command (execute.c:245)
-==8436==    by 0x402CF6: create_process (execute.c:362)
-==8436==    by 0x402E43: run_script (execute.c:400)
-==8436==    by 0x4013FE: main (quash.c:132)
-==8436==  Address 0x7270007367726178 is not stack'd, malloc'd or (recently) free'd
-==8436== 
-==8436== 
-==8436== Process terminating with default action of signal 11 (SIGSEGV): dumping core
-==8436==  General Protection Fault
-==8436==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
-==8436==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
-==8436==    by 0x402970: run_echo (execute.c:143)
-==8436==    by 0x402B10: child_run_command (execute.c:245)
-==8436==    by 0x402CF6: create_process (execute.c:362)
-==8436==    by 0x402E43: run_script (execute.c:400)
-==8436==    by 0x4013FE: main (quash.c:132)
-==8402== 
-==8402== HEAP SUMMARY:
-==8402==     in use at exit: 17,730 bytes in 5 blocks
-==8402==   total heap usage: 9 allocs, 4 frees, 1,067,650 bytes allocated
-==8402== 
-==8402== LEAK SUMMARY:
-==8402==    definitely lost: 0 bytes in 0 blocks
-==8402==    indirectly lost: 0 bytes in 0 blocks
-==8402==      possibly lost: 0 bytes in 0 blocks
-==8402==    still reachable: 17,730 bytes in 5 blocks
-==8402==         suppressed: 0 bytes in 0 blocks
-==8402== Reachable blocks (those to which a pointer was found) are not shown.
-==8402== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==8402== 
-==8402== For counts of detected and suppressed errors, rerun with: -v
-==8402== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==8431== 
-==8431== HEAP SUMMARY:
-==8431==     in use at exit: 17,730 bytes in 5 blocks
-==8431==   total heap usage: 12 allocs, 7 frees, 1,068,994 bytes allocated
-==8431== 
-==8431== LEAK SUMMARY:
-==8431==    definitely lost: 0 bytes in 0 blocks
-==8431==    indirectly lost: 0 bytes in 0 blocks
-==8431==      possibly lost: 0 bytes in 0 blocks
-==8431==    still reachable: 17,730 bytes in 5 blocks
-==8431==         suppressed: 0 bytes in 0 blocks
-==8431== Reachable blocks (those to which a pointer was found) are not shown.
-==8431== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==8431== 
-==8431== For counts of detected and suppressed errors, rerun with: -v
-==8431== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==8441== 
-==8441== HEAP SUMMARY:
-==8441==     in use at exit: 17,730 bytes in 5 blocks
-==8441==   total heap usage: 27 allocs, 22 frees, 2,126,178 bytes allocated
-==8441== 
-==8441== LEAK SUMMARY:
-==8441==    definitely lost: 0 bytes in 0 blocks
-==8441==    indirectly lost: 0 bytes in 0 blocks
-==8441==      possibly lost: 0 bytes in 0 blocks
-==8441==    still reachable: 17,730 bytes in 5 blocks
-==8441==         suppressed: 0 bytes in 0 blocks
-==8441== Reachable blocks (those to which a pointer was found) are not shown.
-==8441== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==8441== 
-==8441== For counts of detected and suppressed errors, rerun with: -v
-==8441== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
-==8436== 
-==8436== HEAP SUMMARY:
-==8436==     in use at exit: 17,730 bytes in 5 blocks
-==8436==   total heap usage: 24 allocs, 19 frees, 1,080,354 bytes allocated
-==8436== 
-==8436== LEAK SUMMARY:
-==8436==    definitely lost: 0 bytes in 0 blocks
-==8436==    indirectly lost: 0 bytes in 0 blocks
-==8436==      possibly lost: 0 bytes in 0 blocks
-==8436==    still reachable: 17,730 bytes in 5 blocks
-==8436==         suppressed: 0 bytes in 0 blocks
-==8436== Reachable blocks (those to which a pointer was found) are not shown.
-==8436== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==8436== 
-==8436== For counts of detected and suppressed errors, rerun with: -v
-==8436== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
-==8171== 
-==8171== Process terminating with default action of signal 2 (SIGINT)
-==8171==    at 0x4F2B1B0: __read_nocancel (in /usr/lib64/libc-2.23.so)
-==8171==    by 0x4EB0557: _IO_file_underflow@@GLIBC_2.2.5 (in /usr/lib64/libc-2.23.so)
-==8171==    by 0x4EAF077: _IO_file_xsgetn (in /usr/lib64/libc-2.23.so)
-==8171==    by 0x4EA4388: fread (in /usr/lib64/libc-2.23.so)
-==8171==    by 0x40C5A6: yy_get_next_buffer (lex.yy.c:1190)
-==8171==    by 0x40C073: yylex (lex.yy.c:1031)
-==8171==    by 0x40A3E3: yyparse (parse.tab.c:1221)
-==8171==    by 0x409D92: parse (parsing_interface.c:300)
-==8171==    by 0x4013E7: main (quash.c:129)
-==8171== 
-==8171== HEAP SUMMARY:
-==8171==     in use at exit: 17,730 bytes in 5 blocks
-==8171==   total heap usage: 28 allocs, 23 frees, 1,078,866 bytes allocated
-==8171== 
-==8171== LEAK SUMMARY:
-==8171==    definitely lost: 0 bytes in 0 blocks
-==8171==    indirectly lost: 0 bytes in 0 blocks
-==8171==      possibly lost: 0 bytes in 0 blocks
-==8171==    still reachable: 17,730 bytes in 5 blocks
-==8171==         suppressed: 0 bytes in 0 blocks
-==8171== Reachable blocks (those to which a pointer was found) are not shown.
-==8171== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==8171== 
-==8171== For counts of detected and suppressed errors, rerun with: -v
-==8171== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==24194== Conditional jump or move depends on uninitialised value(s)
+==24197== Conditional jump or move depends on uninitialised value(s)
+==24194==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==24197==    at 0x4E83D54: vfprintf (in /usr/lib64/libc-2.23.so)
+==24194==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24197==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24194==    by 0x403B62: run_echo (execute.c:153)
+==24197==    by 0x403B62: run_echo (execute.c:153)
+==24194==    by 0x403D02: child_run_command (execute.c:255)
+==24197==    by 0x403D02: child_run_command (execute.c:255)
+==24194==    by 0x403EE8: create_process (execute.c:372)
+==24197==    by 0x403EE8: create_process (execute.c:372)
+==24194==    by 0x404035: run_script (execute.c:410)
+==24197==    by 0x404035: run_script (execute.c:410)
+==24194==    by 0x4013FE: main (quash.c:132)
+==24197==    by 0x4013FE: main (quash.c:132)
+==24194==  Uninitialised value was created by a heap allocation
+==24197==  Uninitialised value was created by a heap allocation
+==24194==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==24197==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==24194==    by 0x405190: __initialize_memory_pool (memory_pool.c:44)
+==24194==    by 0x40530A: initialize_memory_pool (memory_pool.c:89)
+==24197==    by 0x405190: __initialize_memory_pool (memory_pool.c:44)
+==24194==    by 0x4013DD: main (quash.c:128)
+==24194== 
+==24197==    by 0x40530A: initialize_memory_pool (memory_pool.c:89)
+==24197==    by 0x4013DD: main (quash.c:128)
+==24197== 
+==24197== Invalid read of size 1
+==24194== Invalid read of size 1
+==24197==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==24194==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==24197==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24194==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24197==    by 0x403B62: run_echo (execute.c:153)
+==24194==    by 0x403B62: run_echo (execute.c:153)
+==24197==    by 0x403D02: child_run_command (execute.c:255)
+==24194==    by 0x403D02: child_run_command (execute.c:255)
+==24197==    by 0x403EE8: create_process (execute.c:372)
+==24194==    by 0x403EE8: create_process (execute.c:372)
+==24197==    by 0x404035: run_script (execute.c:410)
+==24194==    by 0x404035: run_script (execute.c:410)
+==24197==    by 0x4013FE: main (quash.c:132)
+==24194==    by 0x4013FE: main (quash.c:132)
+==24197==  Address 0x7478742e6f686365 is not stack'd, malloc'd or (recently) free'd
+==24194==  Address 0x7270007367726178 is not stack'd, malloc'd or (recently) free'd
+==24197== 
+==24194== 
+==24197== 
+==24197== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==24194== 
+==24194== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==24197==  General Protection Fault
+==24194==  General Protection Fault
+==24197==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==24194==    at 0x4E84024: vfprintf (in /usr/lib64/libc-2.23.so)
+==24197==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24194==    by 0x4E8B906: fprintf (in /usr/lib64/libc-2.23.so)
+==24197==    by 0x403B62: run_echo (execute.c:153)
+==24194==    by 0x403B62: run_echo (execute.c:153)
+==24197==    by 0x403D02: child_run_command (execute.c:255)
+==24194==    by 0x403D02: child_run_command (execute.c:255)
+==24197==    by 0x403EE8: create_process (execute.c:372)
+==24194==    by 0x403EE8: create_process (execute.c:372)
+==24197==    by 0x404035: run_script (execute.c:410)
+==24194==    by 0x404035: run_script (execute.c:410)
+==24197==    by 0x4013FE: main (quash.c:132)
+==24194==    by 0x4013FE: main (quash.c:132)
+==24173== 
+==24173== HEAP SUMMARY:
+==24173==     in use at exit: 17,730 bytes in 5 blocks
+==24173==   total heap usage: 9 allocs, 4 frees, 1,067,650 bytes allocated
+==24173== 
+==24173== LEAK SUMMARY:
+==24173==    definitely lost: 0 bytes in 0 blocks
+==24173==    indirectly lost: 0 bytes in 0 blocks
+==24173==      possibly lost: 0 bytes in 0 blocks
+==24173==    still reachable: 17,730 bytes in 5 blocks
+==24173==         suppressed: 0 bytes in 0 blocks
+==24173== Reachable blocks (those to which a pointer was found) are not shown.
+==24173== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==24173== 
+==24173== For counts of detected and suppressed errors, rerun with: -v
+==24173== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==24179== 
+==24179== HEAP SUMMARY:
+==24179==     in use at exit: 17,730 bytes in 5 blocks
+==24179==   total heap usage: 12 allocs, 7 frees, 1,068,994 bytes allocated
+==24179== 
+==24179== LEAK SUMMARY:
+==24179==    definitely lost: 0 bytes in 0 blocks
+==24179==    indirectly lost: 0 bytes in 0 blocks
+==24179==      possibly lost: 0 bytes in 0 blocks
+==24179==    still reachable: 17,730 bytes in 5 blocks
+==24179==         suppressed: 0 bytes in 0 blocks
+==24179== Reachable blocks (those to which a pointer was found) are not shown.
+==24179== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==24179== 
+==24179== For counts of detected and suppressed errors, rerun with: -v
+==24179== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==24194== 
+==24194== HEAP SUMMARY:
+==24194==     in use at exit: 17,730 bytes in 5 blocks
+==24194==   total heap usage: 24 allocs, 19 frees, 1,080,354 bytes allocated
+==24194== 
+==24194== LEAK SUMMARY:
+==24194==    definitely lost: 0 bytes in 0 blocks
+==24194==    indirectly lost: 0 bytes in 0 blocks
+==24194==      possibly lost: 0 bytes in 0 blocks
+==24194==    still reachable: 17,730 bytes in 5 blocks
+==24194==         suppressed: 0 bytes in 0 blocks
+==24194== Reachable blocks (those to which a pointer was found) are not shown.
+==24194== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==24194== 
+==24194== For counts of detected and suppressed errors, rerun with: -v
+==24194== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
+==24197== 
+==24197== HEAP SUMMARY:
+==24197==     in use at exit: 17,730 bytes in 5 blocks
+==24197==   total heap usage: 27 allocs, 22 frees, 2,126,178 bytes allocated
+==24197== 
+==24197== LEAK SUMMARY:
+==24197==    definitely lost: 0 bytes in 0 blocks
+==24197==    indirectly lost: 0 bytes in 0 blocks
+==24197==      possibly lost: 0 bytes in 0 blocks
+==24197==    still reachable: 17,730 bytes in 5 blocks
+==24197==         suppressed: 0 bytes in 0 blocks
+==24197== Reachable blocks (those to which a pointer was found) are not shown.
+==24197== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==24197== 
+==24197== For counts of detected and suppressed errors, rerun with: -v
+==24197== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
+==23988== 
+==23988== Process terminating with default action of signal 2 (SIGINT)
+==23988==    at 0x4F2B1B0: __read_nocancel (in /usr/lib64/libc-2.23.so)
+==23988==    by 0x4EB0557: _IO_file_underflow@@GLIBC_2.2.5 (in /usr/lib64/libc-2.23.so)
+==23988==    by 0x4EAF077: _IO_file_xsgetn (in /usr/lib64/libc-2.23.so)
+==23988==    by 0x4EA4388: fread (in /usr/lib64/libc-2.23.so)
+==23988==    by 0x40D79A: yy_get_next_buffer (lex.yy.c:1190)
+==23988==    by 0x40D267: yylex (lex.yy.c:1031)
+==23988==    by 0x40B5D7: yyparse (parse.tab.c:1221)
+==23988==    by 0x40AF86: parse (parsing_interface.c:300)
+==23988==    by 0x4013E7: main (quash.c:129)
+==23988== 
+==23988== HEAP SUMMARY:
+==23988==     in use at exit: 17,730 bytes in 5 blocks
+==23988==   total heap usage: 28 allocs, 23 frees, 1,078,866 bytes allocated
+==23988== 
+==23988== LEAK SUMMARY:
+==23988==    definitely lost: 0 bytes in 0 blocks
+==23988==    indirectly lost: 0 bytes in 0 blocks
+==23988==      possibly lost: 0 bytes in 0 blocks
+==23988==    still reachable: 17,730 bytes in 5 blocks
+==23988==         suppressed: 0 bytes in 0 blocks
+==23988== Reachable blocks (those to which a pointer was found) are not shown.
+==23988== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==23988== 
+==23988== For counts of detected and suppressed errors, rerun with: -v
+==23988== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

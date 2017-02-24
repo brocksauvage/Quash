@@ -1,15 +1,15 @@
-==7923== Memcheck, a memory error detector
-==7923== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==7923== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==7923== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==7923== 
-IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
-==7923== 
-==7923== HEAP SUMMARY:
-==7923==     in use at exit: 0 bytes in 0 blocks
-==7923==   total heap usage: 9 allocs, 9 frees, 1,067,650 bytes allocated
-==7923== 
-==7923== All heap blocks were freed -- no leaks are possible
-==7923== 
-==7923== For counts of detected and suppressed errors, rerun with: -v
-==7923== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==23728== Memcheck, a memory error detector
+==23728== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==23728== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==23728== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==23728== 
+IMPLEMENT ME: src/execute.c(line 94): check_jobs_bg_status()
+==23728== 
+==23728== HEAP SUMMARY:
+==23728==     in use at exit: 0 bytes in 0 blocks
+==23728==   total heap usage: 9 allocs, 9 frees, 1,067,650 bytes allocated
+==23728== 
+==23728== All heap blocks were freed -- no leaks are possible
+==23728== 
+==23728== For counts of detected and suppressed errors, rerun with: -v
+==23728== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

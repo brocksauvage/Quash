@@ -44,10 +44,11 @@ IMPLEMENT_DEQUE(pid_queue, process_t);
 
 typedef struct job_struct{
 	int job_id;
-	pid_queue process_queue;
+	pid_queue pids;
 	char *cmd;
-	bool job_finished;
 } job_t;
+
+job_t curr_job;
 
 IMPLEMENT_DEQUE_STRUCT(job_queue, job_t);
 IMPLEMENT_DEQUE(job_queue, job_t);
@@ -403,11 +404,19 @@ void run_script(CommandHolder* holders) {
     return;
   }
 
+  job_queue jobs;
+  jobs = new_job_queue(1);
+  pid_queue pids;
+  pids = new_pid_queue(1); 
   CommandType type;
 
+  curr_job.job_id = length_job_queue(&jobs);
+  curr_job.pids = pids;
+  //curr_job.cmd = get_command_type(holders);
   // Run all commands in the `holder` array
   for (int i = 0; (type = get_command_holder_type(holders[i])) != EOC; ++i)
     create_process(holders[i]);
+    
 
   if (!(holders[0].flags & BACKGROUND)) {
     // Not a background Job
