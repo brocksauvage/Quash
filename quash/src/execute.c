@@ -21,11 +21,36 @@
  */
 #define IMPLEMENT_ME()                                                  \
   fprintf(stderr, "IMPLEMENT ME: %s(line %d): %s()\n", __FILE__, __LINE__, __FUNCTION__)
+#define READ_END	0
+#define	WRITE_END	1
+
+//Global tracker for active pipes
+static int environment_pipes[2][2];
+static int prev_pipe = -1;
+static int next_pipe = 0;
+
+//Set up a structure definition for individual processes
+typedef struct process_struct{
+	pid_t my_pid;
+	int pipe_fd[2];
+} process_t;
 
 //Set up our queues as needed
 
-IMPLEMENT_DEQUE_STRUCT(PIDS, pid_t);
-IMPLEMENT_DEQUE(PIDS, pid_t);
+IMPLEMENT_DEQUE_STRUCT(pid_queue, process_t);
+IMPLEMENT_DEQUE(pid_queue, process_t);
+
+//Set up job structure
+
+typedef struct job_struct{
+	int job_id;
+	pid_queue process_queue;
+	char *cmd;
+	bool job_finished;
+} job_t;
+
+IMPLEMENT_DEQUE_STRUCT(job_queue, job_t);
+IMPLEMENT_DEQUE(job_queue, job_t);
 
 /***************************************************************************
  * Interface Functions
@@ -210,7 +235,11 @@ void run_jobs() {
  * This version of the function is tailored to commands that should be run in
  * the child process of a fork.
  *
- * @param cmd The Command to try to run
+ * @param cmd The Comma3_bg
+t3_cat
+t3_find_grep
+t3_jobs
+t3_knd to try to run
  *
  * @sa Command
  */
@@ -321,61 +350,44 @@ void create_process(CommandHolder holder) {
   // TODO: Setup pipes, redirects, and new process
   pid_t pid;
 
-  if(p_in){
-	int pipefd[2];
-	int pipe(pipefd);
-
-	if(p_out){
-		int pipefd2[2];
-		int pipe(pipefd);
-	}
-	else if(r_out || r_app){
-		FILE *fout;
-	}
-	else{
-		printf(stderr, "\nError setting up process.");
-	}
-  }
-  else if(r_in)
+  if(p_out)
   {
-	FILE *fin;
-	if(p_out){
-		//set up another parent-child branch.
-		//in child, use dup2 to stdout, push pipe on queue, then destroy pipe
-		//execute child run command, and then exit
-		//for adult, push pid on to queue, as well as the pipe. run parent command
-		int pipefd[2];
-		int pipe(pipefd);
-	}
-	else if(r_out || r_app){
-		FILE *fout;
-	}
-	else{
-		printf(stderr, "\nError setting up process.");
-	}
-  }
-  else{
-	//fork as usual, run commands. Exit on child, push PID to queue in parent
+ 	pipe(environment_pipes[next_pipe]);
   }
 
   pid = fork();
-	  
+
+  if(0 == pid)
+  {
+	if(p_in)
+	{
+		dup2(environment_pipes[prev_pipe][READ_END], STDIN_FILENO);
+		close(environment_pipes[prev_pipe][WRITE_END]);
+	}
+	if(p_out)
+	{
+		dup2(environment_pipes[prev_pipe][READ_END], STDOUT_FILENO);
+		close(environment_pipes[next_pipe][READ_END]);
+	}
+	child_run_command(holder.cmd);
+	exit(EXIT_SUCCESS);
+  }
+  else
+  {
+	if(p_in)
+	{
+		close(environment_pipes[next_pipe][WRITE_END]);
+	}
+	
+	next_pipe = (next_pipe + 1) % 2;
+	prev_pipe = (prev_pipe + 1) % 2;
+	//push_front_pid_queue(&process_queue, my_process);
+	parent_run_command(holder.cmd);
+  }
+  
+  return;
+  
   IMPLEMENT_ME();
-
-
- if(pid == 0){
-	child_run_command(holder.cmd); // This should be done in the child branch of a fork
-        exit(EXIT_SUCCESS);
- } else{
-  	parent_run_command(holder.cmd); // This should be done in the parent branch of
-                                  	// a fork
- }
-
-
-  //parent_run_command(holder.cmd); // This should be done in the parent branch of
-                                  // a fork
-  //child_run_command(holder.cmd); // This should be done in the child branch of a fork
-
 }
 
 // Run a list of commands

@@ -1,56 +1,54 @@
-==52009== Memcheck, a memory error detector
-==52009== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==52009== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright info
-==52009== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==52009== 
-IMPLEMENT ME: src/execute.c(line 69): check_jobs_bg_status()
-IMPLEMENT ME: src/execute.c(line 363): create_process()
-IMPLEMENT ME: src/execute.c(line 363): create_process()
-==52153== Invalid write of size 1
-==52153==    at 0x40254F: get_current_directory (execute.c:43)
-==52153==    by 0x4027DA: run_pwd (execute.c:187)
-==52153==    by 0x4028BB: child_run_command (execute.c:230)
-==52153==    by 0x402ADC: create_process (execute.c:367)
-==52153==    by 0x402C40: run_script (execute.c:398)
-==52153==    by 0x401336: main (quash.c:132)
-==52153==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==52153== 
-==52153== 
-==52153== Process terminating with default action of signal 11 (SIGSEGV)
-==52153==  Access not within mapped region at address 0x0
-==52153==    at 0x40254F: get_current_directory (execute.c:43)
-==52153==    by 0x4027DA: run_pwd (execute.c:187)
-==52153==    by 0x4028BB: child_run_command (execute.c:230)
-==52153==    by 0x402ADC: create_process (execute.c:367)
-==52153==    by 0x402C40: run_script (execute.c:398)
-==52153==    by 0x401336: main (quash.c:132)
-==52153==  If you believe this happened as a result of a stack
-==52153==  overflow in your program's main thread (unlikely but
-==52153==  possible), you can try to increase the size of the
-==52153==  main thread stack using the --main-stacksize= flag.
-==52153==  The main thread stack size used in this run was 8388608.
-==52153== 
-==52153== HEAP SUMMARY:
-==52153==     in use at exit: 17,730 bytes in 5 blocks
-==52153==   total heap usage: 8 allocs, 3 frees, 19,074 bytes allocated
-==52153== 
-==52153== LEAK SUMMARY:
-==52153==    definitely lost: 0 bytes in 0 blocks
-==52153==    indirectly lost: 0 bytes in 0 blocks
-==52153==      possibly lost: 0 bytes in 0 blocks
-==52153==    still reachable: 17,730 bytes in 5 blocks
-==52153==         suppressed: 0 bytes in 0 blocks
-==52153== Reachable blocks (those to which a pointer was found) are not shown.
-==52153== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==52153== 
-==52153== For counts of detected and suppressed errors, rerun with: -v
-==52153== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 2 from 2)
-==52009== 
-==52009== HEAP SUMMARY:
-==52009==     in use at exit: 0 bytes in 0 blocks
-==52009==   total heap usage: 8 allocs, 8 frees, 19,074 bytes allocated
-==52009== 
-==52009== All heap blocks were freed -- no leaks are possible
-==52009== 
-==52009== For counts of detected and suppressed errors, rerun with: -v
-==52009== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==7901== Memcheck, a memory error detector
+==7901== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==7901== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==7901== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==7901== 
+IMPLEMENT ME: src/execute.c(line 84): check_jobs_bg_status()
+==8178== Invalid write of size 1
+==8178==    at 0x4027B9: get_current_directory (execute.c:58)
+==8178==    by 0x402A4C: run_pwd (execute.c:202)
+==8178==    by 0x402B1C: child_run_command (execute.c:249)
+==8178==    by 0x402CF6: create_process (execute.c:362)
+==8178==    by 0x402E43: run_script (execute.c:400)
+==8178==    by 0x4013FE: main (quash.c:132)
+==8178==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==8178== 
+==8178== 
+==8178== Process terminating with default action of signal 11 (SIGSEGV): dumping core
+==8178==  Access not within mapped region at address 0x0
+==8178==    at 0x4027B9: get_current_directory (execute.c:58)
+==8178==    by 0x402A4C: run_pwd (execute.c:202)
+==8178==    by 0x402B1C: child_run_command (execute.c:249)
+==8178==    by 0x402CF6: create_process (execute.c:362)
+==8178==    by 0x402E43: run_script (execute.c:400)
+==8178==    by 0x4013FE: main (quash.c:132)
+==8178==  If you believe this happened as a result of a stack
+==8178==  overflow in your program's main thread (unlikely but
+==8178==  possible), you can try to increase the size of the
+==8178==  main thread stack using the --main-stacksize= flag.
+==8178==  The main thread stack size used in this run was 8388608.
+==7901== 
+==7901== HEAP SUMMARY:
+==7901==     in use at exit: 0 bytes in 0 blocks
+==7901==   total heap usage: 9 allocs, 9 frees, 1,067,650 bytes allocated
+==7901== 
+==7901== All heap blocks were freed -- no leaks are possible
+==7901== 
+==7901== For counts of detected and suppressed errors, rerun with: -v
+==7901== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==8178== 
+==8178== HEAP SUMMARY:
+==8178==     in use at exit: 17,730 bytes in 5 blocks
+==8178==   total heap usage: 9 allocs, 4 frees, 1,067,650 bytes allocated
+==8178== 
+==8178== LEAK SUMMARY:
+==8178==    definitely lost: 0 bytes in 0 blocks
+==8178==    indirectly lost: 0 bytes in 0 blocks
+==8178==      possibly lost: 0 bytes in 0 blocks
+==8178==    still reachable: 17,730 bytes in 5 blocks
+==8178==         suppressed: 0 bytes in 0 blocks
+==8178== Reachable blocks (those to which a pointer was found) are not shown.
+==8178== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==8178== 
+==8178== For counts of detected and suppressed errors, rerun with: -v
+==8178== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

@@ -1,9 +1,4 @@
-‡(­û‡(­û‡(­ûhello\\n
+hello
 (null)
 (null)
 (null)
-‡(­û‡(­û‡(­ûhello
-(null)
-(null)
-(null)
-‡(­û‡(­û‡(­û
