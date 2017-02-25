@@ -1,44 +1,37 @@
-==21902== Memcheck, a memory error detector
-==21902== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==21902== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==21902== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==21902== 
-==22141== 
-==22141== HEAP SUMMARY:
-==22141==     in use at exit: 79 bytes in 3 blocks
-==22141==   total heap usage: 11 allocs, 8 frees, 2,115,041 bytes allocated
-==22141== 
-==22141== LEAK SUMMARY:
-==22141==    definitely lost: 0 bytes in 0 blocks
-==22141==    indirectly lost: 0 bytes in 0 blocks
-==22141==      possibly lost: 0 bytes in 0 blocks
-==22141==    still reachable: 79 bytes in 3 blocks
-==22141==         suppressed: 0 bytes in 0 blocks
-==22141== Reachable blocks (those to which a pointer was found) are not shown.
-==22141== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==22141== 
-==22141== For counts of detected and suppressed errors, rerun with: -v
-==22141== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==21902== 
-==21902== HEAP SUMMARY:
-==21902==     in use at exit: 75 bytes in 2 blocks
-==21902==   total heap usage: 11 allocs, 9 frees, 1,066,473 bytes allocated
-==21902== 
-==21902== 19 bytes in 1 blocks are definitely lost in loss record 1 of 2
-==21902==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
-==21902==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
-==21902==    by 0x401403: get_command_string (quash.c:88)
-==21902==    by 0x40432A: run_script (execute.c:500)
-==21902==    by 0x4014DE: main (quash.c:132)
-==21902== 
-==21902== LEAK SUMMARY:
-==21902==    definitely lost: 19 bytes in 1 blocks
-==21902==    indirectly lost: 0 bytes in 0 blocks
-==21902==      possibly lost: 0 bytes in 0 blocks
-==21902==    still reachable: 56 bytes in 1 blocks
-==21902==         suppressed: 0 bytes in 0 blocks
-==21902== Reachable blocks (those to which a pointer was found) are not shown.
-==21902== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==21902== 
-==21902== For counts of detected and suppressed errors, rerun with: -v
-==21902== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==10746== Memcheck, a memory error detector
+==10746== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==10746== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==10746== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==10746== 
+==10946== 
+==10946== HEAP SUMMARY:
+==10946==     in use at exit: 79 bytes in 3 blocks
+==10946==   total heap usage: 11 allocs, 8 frees, 2,115,041 bytes allocated
+==10946== 
+==10946== LEAK SUMMARY:
+==10946==    definitely lost: 0 bytes in 0 blocks
+==10946==    indirectly lost: 0 bytes in 0 blocks
+==10946==      possibly lost: 0 bytes in 0 blocks
+==10946==    still reachable: 79 bytes in 3 blocks
+==10946==         suppressed: 0 bytes in 0 blocks
+==10946== Reachable blocks (those to which a pointer was found) are not shown.
+==10946== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==10946== 
+==10946== For counts of detected and suppressed errors, rerun with: -v
+==10946== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10746== 
+==10746== HEAP SUMMARY:
+==10746==     in use at exit: 56 bytes in 1 blocks
+==10746==   total heap usage: 11 allocs, 10 frees, 1,066,473 bytes allocated
+==10746== 
+==10746== LEAK SUMMARY:
+==10746==    definitely lost: 0 bytes in 0 blocks
+==10746==    indirectly lost: 0 bytes in 0 blocks
+==10746==      possibly lost: 0 bytes in 0 blocks
+==10746==    still reachable: 56 bytes in 1 blocks
+==10746==         suppressed: 0 bytes in 0 blocks
+==10746== Reachable blocks (those to which a pointer was found) are not shown.
+==10746== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==10746== 
+==10746== For counts of detected and suppressed errors, rerun with: -v
+==10746== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

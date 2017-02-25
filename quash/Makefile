@@ -1,4 +1,4 @@
-STUDENTID = XXXXXXX
+STUDENTID = 2796131
 PROGNAME = quash
 
 CC = gcc --std=gnu11
@@ -83,22 +83,25 @@ testsubmit: submit unsubmit
 
 # Build a safeassign friendly submission of the quash project
 submit: clean src/parsing/parse.tab.c src/parsing/parse.tab.h src/parsing/lex.yy.c
-#	Perform renaming copies across the Makefile and all .c and .h
-#	files
-	cp Makefile Makefile.txt
-	$(foreach file, $(RAWH), cp $(file).h $(file)-h.txt;)
-	$(foreach file, $(RAWC), cp $(file).c $(file)-c.txt;)
+#    Perform renaming copies across the Makefile and all .c and .h
+#    files
+    cp Makefile Makefile.txt
+    $(foreach file, $(RAWH), cp $(file).h $(file)-h.txt;)
+    $(foreach file, $(RAWC), cp $(file).c $(file)-c.txt;)
 
-#	Make a temporary directory
-	mkdir -p $(STUDENTID)-project1-quash
-	$(foreach dir, $(SUBMISSIONDIRS), mkdir -p $(dir);)
+#    Make a temporary directory
+    mkdir -p $(STUDENTID)-project1-quash
+    $(foreach dir, $(SUBMISSIONDIRS), mkdir -p $(dir);)
 
-#	Move all the renamed files into the temporary directory
-	mv Makefile.txt $(STUDENTID)-project1-quash
-	$(foreach file, $(RAWH), mv $(file)-h.txt $(STUDENTID)-project1-quash/$(file)-h.txt &&) \
-	$(foreach file, $(RAWC), mv $(file)-c.txt $(STUDENTID)-project1-quash/$(file)-c.txt &&) \
-	zip -r $(STUDENTID)-project1-quash.zip $(STUDENTID)-project1-quash # Create submission zip
-	-rm -rf $(STUDENTID)-project1-quash # Remove temporary directory
+#    Move all the renamed files into the temporary directory
+    mv Makefile.txt $(STUDENTID)-project1-quash
+    cp -r test-cases/ $(STUDENTID)-project1-quash
+    cp .valgrind_expected.txt $(STUDENTID)-project1-quash
+    cp run_tests.bash $(STUDENTID)-project1-quash
+    $(foreach file, $(RAWH), mv $(file)-h.txt $(STUDENTID)-project1-quash/$(file)-h.txt &&) \
+    $(foreach file, $(RAWC), mv $(file)-c.txt $(STUDENTID)-project1-quash/$(file)-c.txt &&) \
+    zip -r $(STUDENTID)-project1-quash.zip $(STUDENTID)-project1-quash # Create submission zip
+#    -rm -rf $(STUDENTID)-project1-quash # Remove temporary directory
 
 # We will use this command to extract your submission and build
 # it. Check to see if the build works before submitting.

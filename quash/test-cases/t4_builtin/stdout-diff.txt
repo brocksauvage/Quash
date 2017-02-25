@@ -1,0 +1,6 @@
+1c1,3
+< /home/bsauvage/EECS678/Quash/quash/test-cases/t4_builtin/sandbox
+---
+> sandbox
+> sandbox
+> hello
