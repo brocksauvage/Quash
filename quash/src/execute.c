@@ -14,6 +14,9 @@
 #include <unistd.h>
 #include <deque.h>
 #include "quash.h"
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 // Remove this and all expansion calls to it
 /**
@@ -29,11 +32,9 @@ static int environment_pipes[2][2];
 static int prev_pipe = -1;
 static int next_pipe = 0;
 
-//Set up a structure definition for individual processes
-typedef struct process_struct{
-	pid_t my_pid;
-	int pipe_fd[2];
-} process_t;
+//Global variable to prevent multiple job queue instantiation
+static bool is_job_queue_made = false;
+
 
 //Set up our queues as needed
 
@@ -47,18 +48,18 @@ typedef struct job_struct{
 	pid_queue pids;
 	char *cmd;
 } job_t;
+
 void pid_wait(pid_queue pid){
 	int status;
-	waitpid(pid, &status, 0);
-
+	waitpid(peek_front_pid_queue(&pid), &status, 0);
+	//pop_front_pid_queue(&pid);
 }	
-job_t curr_job;
+
 
 IMPLEMENT_DEQUE_STRUCT(job_queue, job_t);
 IMPLEMENT_DEQUE(job_queue, job_t);
 
 job_queue jobs;
-pid_queue pids;
 /***************************************************************************
  * Interface Functions
  ***************************************************************************/
@@ -68,13 +69,15 @@ pid_queue pids;
 //Link: stackoverflow.com/298510/how-to-get-the-current-directory-in-a-c-program
 // Return a string containing the current working directory.
 char* get_current_directory(bool* should_free) {
+
   // TODO: Get the current working directory. This will fix the prompt path.
   // HINT: This should be pretty simple
   char *pwd;
   // Change this to true if necessary
   *should_free = true;
-  pwd = getcwd(NULL, 0);
-  return (pwd);
+ 	 pwd = getcwd(NULL, 0);
+   return (pwd);
+
 }
 
 // Returns the value of an environment variable env_var
@@ -101,29 +104,29 @@ void check_jobs_bg_status() {
 
 	for(int i =0; i < length_job_queue(&jobs); i++)
 	{
-
+		
 		job_t temp_job = pop_front_job_queue(&jobs);
-		bool finished = true;
+		bool finished = false;
+    pid_t temp_pids;
 		for(int j = 0; j < length_pid_queue(&temp_job.pids); j++)
 		{
-			pid_t temp_pids = pop_front_pid_queue(&pids);
+			temp_pids = pop_front_pid_queue(&temp_job.pids);
 			int status;
-			if(waitpid(pids, &status, WNOHANG) == 0)
+			if(waitpid(temp_pids, &status, WNOHANG) == 0)
 			{
-				finished = false;
+				finished = true;
 			}
 			push_back_pid_queue(&temp_job.pids, temp_pids);
-			if(!finished)
-			{
-				push_back_job_queue(&jobs, temp_job);
-			}
-			else
-			{
-			  print_job_bg_complete(temp_job.job_id, peek_front_pid_queue(&temp_job.pids), temp_job.cmd);
-			}
-			
+    }
+		if(finished == false)
+		{
+			push_back_job_queue(&jobs, temp_job);
 		}
-	
+		else
+		{
+		  print_job_bg_complete(temp_job.job_id, temp_pids, temp_job.cmd);
+			free(temp_job.cmd);
+		}
 	}
 		
   // TODO: Once jobs are implemented, uncomment and fill the following line
@@ -206,13 +209,15 @@ void run_export(ExportCommand cmd) {
 
   // TODO: Implement export.
   // HINT: This should be quite simple.
-  setenv(env_var, val, 1);
+	bool flag = 1;
+  setenv(env_var, val, flag);
 }
 
 // Changes the current working directory
 void run_cd(CDCommand cmd) {
+
   // Get the directory name
-  const char* dir = cmd.dir;
+  char* dir = cmd.dir;
 
   // Check if the directory is valid
   if (dir == NULL) {
@@ -221,13 +226,19 @@ void run_cd(CDCommand cmd) {
   }
   // Being worked on by Connor Welch
   // TODO: Change directory
-  chdir(dir);
+  if(chdir(dir) < 0)
+	{
+		printf("Invalid path.\n");
+	}
+	else
+	{
+		// TODO: Update the PWD environment variable to be the new current working
+		// directory and optionally update OLD_PWD environment variable to be the old
+		// working directory.
+		bool flag2 = 1;
+		setenv("PWD", dir, flag2);
+	}
 
-  // TODO: Update the PWD environment variable to be the new current working
-  // directory and optionally update OLD_PWD environment variable to be the old
-  // working directory.
-
-  setenv("PWD", dir, 1);
 }
 
 // Sends a signal to all processes contained in a job
@@ -247,7 +258,7 @@ void run_kill(KillCommand cmd) {
 // Prints the current working directory to stdout
 void run_pwd() {
   // TODO: Print the current working directory
-  bool isFree = 0;
+  bool isFree = 1;
   fprintf(stdout, "%s\n", get_current_directory(&isFree));
 
   // Flush the buffer before returning
@@ -257,9 +268,14 @@ void run_pwd() {
 // Prints all background jobs currently in the job list to stdout
 void run_jobs() {
   // TODO: Print background jobs
-  IMPLEMENT_ME();
+	job_t temp_job;
+	char *command;
   for(int i = 0; i < length_job_queue(&jobs); i++)
 	{
+			temp_job = pop_front_job_queue(&jobs);
+			command = temp_job.cmd;
+			print_job(temp_job.job_id, peek_front_pid_queue(&temp_job.pids), command);
+			push_back_job_queue(&jobs, temp_job);
 	}
 
   // Flush the buffer before returning
@@ -373,7 +389,8 @@ void parent_run_command(Command cmd) {
  *
  * @sa Command CommandHolder
  */
-void create_process(CommandHolder holder) {
+void create_process(CommandHolder holder, pid_queue *pids) {
+
   // Read the flags field from the parser
   bool p_in  = holder.flags & PIPE_IN;
   bool p_out = holder.flags & PIPE_OUT;
@@ -394,37 +411,60 @@ void create_process(CommandHolder holder) {
 
   if(p_out)
   {
- 	pipe(environment_pipes[next_pipe]);
+ 		pipe(environment_pipes[next_pipe]);
   }
 
   pid = fork();
 
   if(0 == pid)
   {
-	if(p_in)
-	{
-		dup2(environment_pipes[prev_pipe][READ_END], STDIN_FILENO);
-		close(environment_pipes[prev_pipe][WRITE_END]);
+		
+		if(r_in)
+		{
+			int in_file = 0;
+			in_file = open(holder.redirect_in, O_RDONLY | O_CLOEXEC);
+			
+			if(r_app)
+			{
+				int out_file = open(holder.redirect_out, O_APPEND | O_WRONLY);
+				dup2(in_file, STDIN_FILENO);
+				dup2(out_file, STDOUT_FILENO);
+				close(in_file);
+				close(out_file);
+			}
+			else if(r_out)
+			{
+				int out_file = open(holder.redirect_out, O_WRONLY | O_TRUNC);
+				dup2(in_file, STDIN_FILENO);
+				dup2(out_file, STDOUT_FILENO);
+				close(in_file);
+				close(out_file);
+			}
+		}
+		if(p_in)
+		{
+			dup2(environment_pipes[prev_pipe][READ_END], STDIN_FILENO);
+			close(environment_pipes[prev_pipe][WRITE_END]);
+		}
+		if(p_out)
+		{
+			dup2(environment_pipes[prev_pipe][READ_END], STDOUT_FILENO);
+			close(environment_pipes[next_pipe][READ_END]);
+		}
+		child_run_command(holder.cmd);
+		exit(EXIT_SUCCESS);
 	}
-	if(p_out)
+	else
 	{
-		dup2(environment_pipes[prev_pipe][READ_END], STDOUT_FILENO);
-		close(environment_pipes[next_pipe][READ_END]);
-	}
-	child_run_command(holder.cmd);
-	exit(EXIT_SUCCESS);
-  }
-  else
-  {
-	if(p_in)
-	{
-		close(environment_pipes[next_pipe][WRITE_END]);
-	}
+		if(p_in)
+		{
+			close(environment_pipes[next_pipe][WRITE_END]);
+		}
 	
-	next_pipe = (next_pipe + 1) % 2;
-	prev_pipe = (prev_pipe + 1) % 2;
-	push_back_pid_queue(&curr_job.pids, pid);
-	parent_run_command(holder.cmd);
+		next_pipe = (next_pipe + 1) % 2;
+		prev_pipe = (prev_pipe + 1) % 2;
+		push_back_pid_queue(pids, pid);
+		parent_run_command(holder.cmd);
   }
   
   return;
@@ -434,43 +474,55 @@ void create_process(CommandHolder holder) {
 
 // Run a list of commands
 void run_script(CommandHolder* holders) {
+
   if (holders == NULL)
     return;
 
+	if(!is_job_queue_made)
+	{
+		jobs = new_job_queue(1);
+  	is_job_queue_made = true;
+	}
 
-  jobs = new_job_queue(1);
-  CommandType type;
 
-  check_jobs_bg_status();
+
+  //check_jobs_bg_status();
 
   if (get_command_holder_type(holders[0]) == EXIT &&                                   
       get_command_holder_type(holders[1]) == EOC) {
     end_main_loop();
     return;
   }
-
-  curr_job.job_id = length_job_queue(&jobs);
+	job_t curr_job;
+	CommandType type;
+  curr_job.job_id = length_job_queue(&jobs)+1;
   curr_job.pids = new_pid_queue(1);
   curr_job.cmd = get_command_string();
 
   // Run all commands in the `holder` array
+
   for (int i = 0; (type = get_command_holder_type(holders[i])) != EOC; ++i)
-    create_process(holders[i]);
-    
+    create_process(holders[i], &curr_job.pids);
+ 
 
   if (!(holders[0].flags & BACKGROUND)) {
     // Not a background Job
     // TODO: Wait for all processes under the job to complete
     //keep track of pid and wait to finish
-
-    apply_pid_queue(&curr_job.pids, pid_wait);
-    destroy_pid_queue(&curr_job.pids);
+		
+    //apply_pid_queue(&curr_job.pids, pid_wait);
+		int status;
+		while(!is_empty_pid_queue(&curr_job.pids))
+		{
+				pid_t temp_pid = pop_front_pid_queue(&curr_job.pids);
+				waitpid(temp_pid, &status, 0);
+		}
+  
 
   }
   else {
     // A background job.
     // TODO: Push the new job to the job queue
-    IMPLEMENT_ME();
 		push_back_job_queue(&jobs, curr_job);
 		char* cmd =curr_job.cmd;
 		int job_id = curr_job.job_id;
@@ -479,6 +531,7 @@ void run_script(CommandHolder* holders) {
     print_job_bg_start(job_id, pid, cmd);
   }
 
-  //free(&jobs);
-  //free(&pids);
+	  destroy_pid_queue(&curr_job.pids);
+	//free(curr_job.cmd);
+	//free(&jobs);
 }

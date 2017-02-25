@@ -1,0 +1,77 @@
+CHDIR(2)                        Linux Programmer's Manual                        CHDIR(2)
+
+[1mNAME[0m
+       chdir, fchdir - change working directory
+
+[1mSYNOPSIS[0m
+       [1m#include <unistd.h>[0m
+
+       [1mint chdir(const char *[4m[22mpath[24m[1m);[0m
+       [1mint fchdir(int [4m[22mfd[24m[1m);[0m
+
+   Feature Test Macro Requirements for glibc (see [1mfeature_test_macros[22m(7)):
+
+       [1mfchdir[22m():
+           _XOPEN_SOURCE >= 500
+               || /* Since glibc 2.12: */ _POSIX_C_SOURCE >= 200809L
+               || /* Glibc up to and including 2.19: */ _BSD_SOURCE
+
+[1mDESCRIPTION[0m
+       [1mchdir[22m() changes the current working directory of the calling process to the direc‐
+       tory specified in [4mpath[24m.
+
+       [1mfchdir[22m() is identical to [1mchdir[22m(); the only difference is  that  the  directory  is
+       given as an open file descriptor.
+
+[1mRETURN VALUE[0m
+       On  success,  zero is returned.  On error, -1 is returned, and [4merrno[24m is set appro‐
+       priately.
+
+[1mERRORS[0m
+       Depending on the filesystem, other errors  can  be  returned.   The  more  general
+       errors for [1mchdir[22m() are listed below:
+
+       [1mEACCES [22mSearch  permission  is denied for one of the components of [4mpath[24m.  (See also
+              [1mpath_resolution[22m(7).)
+
+       [1mEFAULT [4m[22mpath[24m points outside your accessible address space.
+
+       [1mEIO    [22mAn I/O error occurred.
+
+       [1mELOOP  [22mToo many symbolic links were encountered in resolving [4mpath[24m.
+
+       [1mENAMETOOLONG[0m
+              [4mpath[24m is too long.
+
+       [1mENOENT [22mThe directory specified in [4mpath[24m does not exist.
+
+       [1mENOMEM [22mInsufficient kernel memory was available.
+
+       [1mENOTDIR[0m
+              A component of [4mpath[24m is not a directory.
+
+       The general errors for [1mfchdir[22m() are listed below:
+
+       [1mEACCES [22mSearch permission was denied on the directory open on [4mfd[24m.
+
+       [1mEBADF  [4m[22mfd[24m is not a valid file descriptor.
+
+[1mCONFORMING TO[0m
+       POSIX.1-2001, POSIX.1-2008, SVr4, 4.4BSD.
+
+[1mNOTES[0m
+       The current working directory is the  starting  point  for  interpreting  relative
+       pathnames (those not starting with '/').
+
+       A  child  process created via [1mfork[22m(2) inherits its parent's current working direc‐
+       tory.  The current working directory is left unchanged by [1mexecve[22m(2).
+
+[1mSEE ALSO[0m
+       [1mchroot[22m(2), [1mgetcwd[22m(3), [1mpath_resolution[22m(7)
+
+[1mCOLOPHON[0m
+       This page is part of release 4.06 of the Linux [4mman-pages[24m project.   A  description
+       of  the  project, information about reporting bugs, and the latest version of this
+       page, can be found at https://www.kernel.org/doc/man-pages/.
+
+Linux                                   2016-03-15                               CHDIR(2)

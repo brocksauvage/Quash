@@ -1,21 +1,28 @@
-==3843== Memcheck, a memory error detector
-==3843== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==3843== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==3843== Command: /home/bsauvage/EECS678/Quash/quash/quash
-==3843== 
-==3843== 
-==3843== HEAP SUMMARY:
-==3843==     in use at exit: 72 bytes in 2 blocks
-==3843==   total heap usage: 13 allocs, 11 frees, 1,067,734 bytes allocated
-==3843== 
-==3843== LEAK SUMMARY:
-==3843==    definitely lost: 0 bytes in 0 blocks
-==3843==    indirectly lost: 0 bytes in 0 blocks
-==3843==      possibly lost: 0 bytes in 0 blocks
-==3843==    still reachable: 72 bytes in 2 blocks
-==3843==         suppressed: 0 bytes in 0 blocks
-==3843== Reachable blocks (those to which a pointer was found) are not shown.
-==3843== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==3843== 
-==3843== For counts of detected and suppressed errors, rerun with: -v
-==3843== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==21822== Memcheck, a memory error detector
+==21822== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==21822== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==21822== Command: /home/bsauvage/EECS678/Quash/quash/quash
+==21822== 
+==21822== 
+==21822== HEAP SUMMARY:
+==21822==     in use at exit: 72 bytes in 2 blocks
+==21822==   total heap usage: 13 allocs, 11 frees, 1,067,734 bytes allocated
+==21822== 
+==21822== 16 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==21822==    at 0x4C2BBAD: malloc (vg_replace_malloc.c:299)
+==21822==    by 0x4EC0079: strdup (in /usr/lib64/libc-2.23.so)
+==21822==    by 0x401403: get_command_string (quash.c:88)
+==21822==    by 0x40432A: run_script (execute.c:500)
+==21822==    by 0x4014DE: main (quash.c:132)
+==21822== 
+==21822== LEAK SUMMARY:
+==21822==    definitely lost: 16 bytes in 1 blocks
+==21822==    indirectly lost: 0 bytes in 0 blocks
+==21822==      possibly lost: 0 bytes in 0 blocks
+==21822==    still reachable: 56 bytes in 1 blocks
+==21822==         suppressed: 0 bytes in 0 blocks
+==21822== Reachable blocks (those to which a pointer was found) are not shown.
+==21822== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==21822== 
+==21822== For counts of detected and suppressed errors, rerun with: -v
+==21822== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
